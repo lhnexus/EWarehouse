@@ -1,0 +1,28 @@
+<mvc:View controllerName="Panels.MiniCharts.failure_robot" xmlns="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<m:Page id="page" showHeader="false">
+		<m:Panel>
+			<l:VerticalLayout>
+				<l:content>
+					<m:Label text="Failure Rate of Robot"/>
+					<m:Label text="Real time"/>
+					<m:Label text=""/>
+					<m:Label text=""/>
+					<m:Label text=""/>
+					<m:Label text=""/>
+					<m:Label text=""/>
+					<m:Label text=""/>
+					<l:HorizontalLayout >
+						<m:NumericContent id="failRtNum" scale="/" withMargin="false"/>
+						<m:NumericContent id="totalNum" withMargin="false"/>
+						<core:Icon src="sap-icon://stethoscope" class="sapUiSmallMargin" size="2rem" color="#8875E7" press="handleStethoscopePress">
+							<!--<core:layoutData>-->
+							<!--	<m:FlexItemData growFactor="4"/>-->
+							<!--</core:layoutData>-->
+						</core:Icon>
+					</l:HorizontalLayout >
+				</l:content>
+			</l:VerticalLayout>
+		</m:Panel>
+	</m:Page>
+</mvc:View>

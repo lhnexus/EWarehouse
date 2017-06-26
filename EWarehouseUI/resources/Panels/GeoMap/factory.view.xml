@@ -1,0 +1,18 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="Panels.GeoMap.factory" xmlns:vbm="sap.ui.vbm">
+	<!--xmlns:gmaps="openui5.googlemaps" -->
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<!--<gmaps:Map id="factoryMap" height="900px" zoom="18" lat="22.651694" lng="114.044770" apiKey="AIzaSyD6EmAk92gaGzjYVYU-ebd_BK-rgejSoZ0">-->
+					<!--	<gmaps:markers>-->
+					<!--		<gmaps:Marker lat="22.651694" lng="114.044770" icon="http://maps.google.com/mapfiles/kml/pal2/icon21.png" click="onMarkerClick"></gmaps:Marker>-->
+					<!--	</gmaps:markers>-->
+					<!--</gmaps:Map>-->
+					<vbm:GeoMap id="GeoMap" width="100%" height="100%" />
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

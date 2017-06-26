@@ -1,0 +1,57 @@
+{
+	"TaskRate": {
+		"Value": 75,
+		"scale": "%",
+		"MinValue": 0,
+		"MaxValue": 100,
+		"color": "Good"
+	},
+	"OnTimeDelRate": {
+		"Value": 95,
+		"scale": "%",
+		"Indicator": "Up",
+		"ValueColor": "Good",
+		"colvalue": "100"
+	},
+	"CapacityUtRate": {
+		"Value": 73,
+		"scale": "%",
+		"Indicator": "Up",
+		"Threshold": 70,
+		"color": "Critical",
+		"points": [
+				{"x": 0, "y": 80, "show": true},
+				{"x": 17, "y": 72, "show": true},
+				{"x": 34, "y": 67, "show": true},
+				{"x": 51, "y": 73, "show": true},
+				{"x": 68, "y": 75, "show": true},
+				{"x": 85, "y": 78, "show": true},
+				{"x": 100, "y": 88, "show": true}
+			]
+	},
+	"EquipmentDtRate": {
+		"Value": 6,
+		"scale": "%",
+		"Indicator": "Up",
+		"Threshold": 75,
+		"color": "Critical",
+		"points": [
+				{"x": 0, "y": 73, "show": true},
+				{"x": 17, "y": 80, "show": true},
+				{"x": 34, "y": 67, "show": true},
+				{"x": 51, "y": 82, "show": true},
+				{"x": 68, "y": 73, "show": true},
+				{"x": 85, "y": 69, "show": true},
+				{"x": 100, "y": 85, "show": true}
+			]
+	},
+	"FailureRate": {
+		"Value": 4,
+		"Total": 120
+	},
+	"Alert": {
+		"Value": 1,
+		"color": "Critical"
+	}
+	
+}

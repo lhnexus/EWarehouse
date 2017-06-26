@@ -1,0 +1,18 @@
+<mvc:View controllerName="Panels.MiniCharts.equipment_dt" xmlns="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<m:Page id="page" showHeader="false">
+		<m:Panel>
+			<l:VerticalLayout>
+				<l:content>
+					<m:Label text="Equipment Downtime Rate"/>
+					<m:Label text="Last 7 Days"/>
+					<m:NumericContent id="equipmentDtNum" class="sapUiSmallMargin"/>
+							<LineMicroChart size="L" threshold="{/EquipmentDtRate/Threshold}" color="{/EquipmentDtRate/color}" press="press"
+								points="{ path: '/EquipmentDtRate/points', templateShareable: true }" class="sapUiTinyMarginTop">
+								<LineMicroChartEmphasizedPoint x="{x}" y="{y}" color="{color}" show="{show}"/>
+							</LineMicroChart>
+				</l:content>
+			</l:VerticalLayout>
+		</m:Panel>
+	</m:Page>
+</mvc:View>

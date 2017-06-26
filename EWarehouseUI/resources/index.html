@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<title>EWarehouseUI</title>
+<script src="http://veui5infra.dhcp.wdf.sap.corp:8080/sapui5-sdk-dist/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m, sap.ui.commons, sap.ui.table"
+	data-sap-ui-theme="sap_bluecrystal" data-sap-ui-xx-bindingSyntax="complex"></script>
+	
+<script src="//d3js.org/d3.v3.min.js"></script>
+	<script>
+	// data-sap-ui-resourceroots='{"openui5.googlemaps": "openui5/googlemaps"}'
+		sap.ui.localResources("Panels");
+		// sap.ui.getCore().loadLibrary("openui5.googlemaps", "openui5/googlemaps/");
+		var app = new sap.m.App({initialPage:"Panels_Charts"});
+		sap.ui.getCore().AppContext = new Object();
+    	sap.ui.getCore().AppContext.App = app;
+		var page = sap.ui.view({
+			id:"Panels_Charts",
+			viewName:"Panels.Charts",
+			type:sap.ui.core.mvc.ViewType.XML
+		});
+		app.addPage(page);
+		app.placeAt("content");
+	
+	</script>
+	</head>
+	<body class="sapUiBody" id="content"></body>
+</html>

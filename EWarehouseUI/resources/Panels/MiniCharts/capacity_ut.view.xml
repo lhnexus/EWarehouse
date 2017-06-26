@@ -1,0 +1,20 @@
+<mvc:View controllerName="Panels.MiniCharts.capacity_ut" xmlns="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<m:Page id="page" showHeader="false">
+		<m:Panel>
+			<l:VerticalLayout>
+				<l:content>
+					<m:Label text="Capacity Utilization Rate"/>
+					<m:Label text="Last 7 Days"/>
+					<m:NumericContent id="capacityUtNum" class="sapUiSmallMargin"/>
+					<!--<m:FlexBox width="20rem" height="10rem" alignItems="Center" class="sapUiSmallMargin">-->
+					<!--	<m:items>-->
+							<LineMicroChart size="L" threshold="{/CapacityUtRate/Threshold}" color="{/CapacityUtRate/color}" press="press"
+								points="{ path: '/CapacityUtRate/points', templateShareable: true }" class="sapUiTinyMarginTop">
+								<LineMicroChartEmphasizedPoint x="{x}" y="{y}" color="{color}" show="{show}"/>
+							</LineMicroChart>
+				</l:content>
+			</l:VerticalLayout>
+		</m:Panel>
+	</m:Page>
+</mvc:View>

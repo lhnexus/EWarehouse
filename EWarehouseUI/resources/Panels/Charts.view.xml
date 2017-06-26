@@ -1,0 +1,64 @@
+<mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:base="sap.ui.base" xmlns:tool="Panels.control">
+	<Page title="Charts" width="100%" enableScrolling="true">
+		<l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell width="50%">
+					<l:BlockLayout background="Dashboard">
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell>
+								<!--<Title-->
+								<!--	text="BlockCell-1-1"-->
+								<!--	titleStyle="H2"-->
+								<!--	width="100%"/>-->
+								<mvc:XMLView id="task_complete" viewName="Panels.MiniCharts.task_complete" width="260px" height="300px"/>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell>
+								<!--<Title-->
+								<!--	text="BlockCell-1-2"-->
+								<!--	titleStyle="H2"-->
+								<!--	width="100%"/>-->
+								<mvc:XMLView id="ontime_delivery" viewName="Panels.MiniCharts.ontime_delivery" width="260px" height="300px"/>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell>
+								<!--<Title-->
+								<!--	text="BlockCell-1-3"-->
+								<!--	titleStyle="H2"-->
+								<!--	width="100%"/>-->
+								<mvc:XMLView id="capacity_ut" viewName="Panels.MiniCharts.capacity_ut" height="300px"/>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell>
+								<!--<Title-->
+								<!--	text="BlockCell-1-4"-->
+								<!--	titleStyle="H2"-->
+								<!--	width="100%"/>-->
+								<mvc:XMLView id="equip_downtime" viewName="Panels.MiniCharts.equipment_dt" height="300px"/>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell>
+								<!--<Title-->
+								<!--	text="BlockCell-1-5"-->
+								<!--	titleStyle="H2"-->
+								<!--	width="100%"/>-->
+								<mvc:XMLView id="fail_rate" viewName="Panels.MiniCharts.failure_robot" height="300px"/>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell>
+								<!--<Title-->
+								<!--	text="BlockCell-1-6"-->
+								<!--	titleStyle="H2"-->
+								<!--	width="100%"/>-->
+								<mvc:XMLView id="alert_notification" viewName="Panels.MiniCharts.alert_notify" height="300px"/>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+					</l:BlockLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell width="50%">
+					<!--<Title text="BlockCell-2" titleStyle="H2" width="100%"/>-->
+					<mvc:XMLView id="geoMap" viewName="Panels.GeoMap.factory"/>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout>
+	</Page>
+</mvc:View>

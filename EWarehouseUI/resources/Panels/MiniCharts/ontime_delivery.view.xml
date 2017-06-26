@@ -1,0 +1,29 @@
+<mvc:View
+	controllerName="Panels.MiniCharts.ontime_delivery"
+	xmlns="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout">
+	<m:Page id="page" showHeader="false">
+		<m:Panel>
+			<l:VerticalLayout>
+				<l:content>
+					<m:Label text="On Time Delivery Rate" />
+					<m:Label text="Last 7 Days" />
+					<m:NumericContent id="onTimeDelNum" class="sapUiSmallMargin"/>
+					<ColumnMicroChart id="ontimeChart" width="12rem" size="S" press="press" class="sapUiSmallMargin">
+						<!--<columns>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--	<ColumnMicroChartData	value="100" color="Neutral"/>-->
+						<!--</columns>-->
+					</ColumnMicroChart>
+				</l:content>
+			</l:VerticalLayout>
+		</m:Panel>
+	</m:Page>
+</mvc:View>
