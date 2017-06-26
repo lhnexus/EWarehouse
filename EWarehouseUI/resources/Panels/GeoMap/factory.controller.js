@@ -5,6 +5,11 @@ sap.ui.define(['sap/m/MessageToast'],
 		return sap.ui.controller("Panels.GeoMap.factory", {
 			onInit: function() {
 
+				var oModel = new sap.ui.model.json.JSONModel();
+
+				oModel.loadData("Panels/mockserver/data.json");
+				this.getView().setModel(oModel);
+
 				this.oGeoMap = this.getView().byId("GeoMap");
 
 				var oMapConfig = {

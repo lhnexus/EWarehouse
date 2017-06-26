@@ -19,15 +19,35 @@
 		"Indicator": "Up",
 		"Threshold": 70,
 		"color": "Critical",
-		"points": [
-				{"x": 0, "y": 80, "show": true},
-				{"x": 17, "y": 72, "show": true},
-				{"x": 34, "y": 67, "show": true},
-				{"x": 51, "y": 73, "show": true},
-				{"x": 68, "y": 75, "show": true},
-				{"x": 85, "y": 78, "show": true},
-				{"x": 100, "y": 88, "show": true}
-			]
+		"points": [{
+			"x": 0,
+			"y": 80,
+			"show": true
+		}, {
+			"x": 17,
+			"y": 72,
+			"show": true
+		}, {
+			"x": 34,
+			"y": 67,
+			"show": true
+		}, {
+			"x": 51,
+			"y": 73,
+			"show": true
+		}, {
+			"x": 68,
+			"y": 75,
+			"show": true
+		}, {
+			"x": 85,
+			"y": 78,
+			"show": true
+		}, {
+			"x": 100,
+			"y": 88,
+			"show": true
+		}]
 	},
 	"EquipmentDtRate": {
 		"Value": 6,
@@ -35,15 +55,35 @@
 		"Indicator": "Up",
 		"Threshold": 75,
 		"color": "Critical",
-		"points": [
-				{"x": 0, "y": 73, "show": true},
-				{"x": 17, "y": 80, "show": true},
-				{"x": 34, "y": 67, "show": true},
-				{"x": 51, "y": 82, "show": true},
-				{"x": 68, "y": 73, "show": true},
-				{"x": 85, "y": 69, "show": true},
-				{"x": 100, "y": 85, "show": true}
-			]
+		"points": [{
+			"x": 0,
+			"y": 73,
+			"show": true
+		}, {
+			"x": 17,
+			"y": 80,
+			"show": true
+		}, {
+			"x": 34,
+			"y": 67,
+			"show": true
+		}, {
+			"x": 51,
+			"y": 82,
+			"show": true
+		}, {
+			"x": 68,
+			"y": 73,
+			"show": true
+		}, {
+			"x": 85,
+			"y": 69,
+			"show": true
+		}, {
+			"x": 100,
+			"y": 85,
+			"show": true
+		}]
 	},
 	"FailureRate": {
 		"Value": 4,
@@ -52,6 +92,32 @@
 	"Alert": {
 		"Value": 1,
 		"color": "Critical"
-	}
-	
+	},
+
+	"Areas": [{
+		"B": "shenzhen warehouse A",
+		"C": "rgba(92;186;230;0.6)",
+		"D": "rgba(255;255;51;0.8)",
+		"H": "114.04092;22.65566;0;114.04264;22.65484;0;114.04219;22.65405;0;114.04047;22.65484;0",
+		"K": "EB/FTnDNsWnhAAAACkKHUg=="
+	}, {
+		"B": "shenzhen warehouse B",
+		"C": "rgba(182;217;87;0.6)",
+		"D": "rgba(255;255;51;0.8)",
+		"H": "114.04040;22.65474;0;114.04213;22.65395;0;114.04183;22.65338;0;114.04009;22.65420;0",
+		"K": "EB/FTnDNsWnhAAAACkKHUg=="
+	}, {
+		"B": "shenzhen warehouse C",
+		"C": "rgba(250;195;100;0.6)",
+		"D": "rgba(255;255;51;0.8)",
+		"H": "114.04005;22.65409;0;114.04178;22.65328;0;114.04147;22.65272;0;114.03972;22.65355;0",
+		"K": "EB/FTnDNsWnhAAAACkKHUg=="
+	}, {
+		"B": "shenzhen warehouse D",
+		"C": "rgba(140;211;255;0.6)",
+		"D": "rgba(255;255;51;0.8)",
+		"H": "114.03970;22.65345;0;114.04132;22.65268;0;114.04108;22.65227;0;114.03948;22.65301;0",
+		"K": "EB/FTnDNsWnhAAAACkKHUg=="
+	}]
+
 }
