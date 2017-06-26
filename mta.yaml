@@ -1,0 +1,8 @@
+ID: EWarehouse
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: EWarehouseUI
+   type: html5
+   path: EWarehouseUI
