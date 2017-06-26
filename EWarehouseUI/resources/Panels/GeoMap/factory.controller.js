@@ -15,13 +15,26 @@ sap.ui.define(['sap/m/MessageToast'],
 						"maxLOD": "20",
 						"Source": [{
 							"id": "s1",
-							"url": "http://a.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+							// "url": "http://a.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+							//"url": "http://a.tile.openstreetmap.fr/hot/{LOD}/{X}/{Y}.png"
+							//"url": "http://a.tile.stamen.com/toner/{LOD}/{X}/{Y}.png"
+							"url": "http://a.tile2.opencyclemap.org/transport/{LOD}/{X}/{Y}.png"
+								//"url": "http://a.basemaps.cartocdn.com/light_all/{LOD}/{X}/{Y}.png"
+
 						}, {
 							"id": "s2",
-							"url": "http://b.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+							//"url": "http://b.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+							//"url": "http://b.tile.openstreetmap.fr/hot/{LOD}/{X}/{Y}.png"
+							//"url": "http://b.tile.stamen.com/toner/{LOD}/{X}/{Y}.png"
+							"url": "http://b.tile2.opencyclemap.org/transport/{LOD}/{X}/{Y}.png"
+								//"url": "http://b.basemaps.cartocdn.com/light_all/{LOD}/{X}/{Y}.png"
 						}, {
 							"id": "s3",
-							"url": "http://c.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+							//"url": "http://c.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+							//"url": "http://c.tile.openstreetmap.fr/hot/{LOD}/{X}/{Y}.png"
+							//"url": "http://c.tile.stamen.com/toner/{LOD}/{X}/{Y}.png"
+							"url": "http://c.tile2.opencyclemap.org/transport/{LOD}/{X}/{Y}.png"
+								//"url": "http://c.basemaps.cartocdn.com/light_all/{LOD}/{X}/{Y}.png"
 						}]
 					}],
 					"MapLayerStacks": [{
@@ -38,7 +51,7 @@ sap.ui.define(['sap/m/MessageToast'],
 				this.oGeoMap.setMapConfiguration(oMapConfig);
 				this.oGeoMap.setRefMapLayerStack("DEFAULT");
 				this.oGeoMap.setInitialZoom(18);
-				
+
 				var startaddress = "foxconn+shenzhen";
 				var lat;
 				var lon;
@@ -53,9 +66,9 @@ sap.ui.define(['sap/m/MessageToast'],
 						lon = json[0].lon;
 					}
 				});
-			
-				this.oGeoMap.setInitialPosition(lon + ";" + lat + ";0");
-				//this.oGeoMap.setInitialPosition("22.651694;114.044770;0");
+
+				//this.oGeoMap.setInitialPosition(lon + ";" + lat + ";0");
+				this.oGeoMap.setInitialPosition("114.04109;22.65375;0");
 
 				////////////////////HBOX Codes
 
