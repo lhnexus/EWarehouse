@@ -9,10 +9,10 @@
 					<m:NumericContent id="capacityUtNum" class="sapUiSmallMargin"/>
 					<!--<m:FlexBox width="20rem" height="10rem" alignItems="Center" class="sapUiSmallMargin">-->
 					<!--	<m:items>-->
-							<LineMicroChart size="L" threshold="{/CapacityUtRate/Threshold}" color="{/CapacityUtRate/color}" press="press"
-								points="{ path: '/CapacityUtRate/points', templateShareable: true }" class="sapUiTinyMarginTop">
-								<LineMicroChartEmphasizedPoint x="{x}" y="{y}" color="{color}" show="{show}"/>
-							</LineMicroChart>
+					<LineMicroChart size="L" threshold="{/CapacityUtRate/Threshold}" color="{/CapacityUtRate/color}" press="press"
+						points="{ path: '/CapacityUtRate/points', templateShareable: true }" class="sapUiTinyMarginTop">
+						<LineMicroChartEmphasizedPoint x="{x}" y="{y}" color="{color}" show="{show}"/>
+					</LineMicroChart>
 				</l:content>
 			</l:VerticalLayout>
 		</m:Panel>
