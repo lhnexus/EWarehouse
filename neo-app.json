@@ -21,6 +21,7 @@
     }
   ],
   "sendWelcomeFileRedirect": true,
+  "authenticationMethod": "none",
   "cacheControl": [
     {
       "directive": "private",
