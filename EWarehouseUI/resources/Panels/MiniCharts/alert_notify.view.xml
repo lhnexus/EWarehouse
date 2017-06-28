@@ -10,8 +10,8 @@
 					<m:Label text=""/>
 					<m:Label text=""/>
 					<m:Label text=""/>
-					<m:Label text=""/>
-					<m:Label text=""/>
+					<!--<m:Label text=""/>-->
+					<!--<m:Label text=""/>-->
 					<l:HorizontalLayout>
 						<m:NumericContent id="alertNum" withMargin="false"/>
 						<m:FlexBox justifyContent="End">

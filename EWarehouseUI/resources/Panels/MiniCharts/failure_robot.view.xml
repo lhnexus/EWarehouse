@@ -10,8 +10,8 @@
 					<m:Label text=""/>
 					<m:Label text=""/>
 					<m:Label text=""/>
-					<m:Label text=""/>
-					<m:Label text=""/>
+					<!--<m:Label text=""/>-->
+					<!--<m:Label text=""/>-->
 					<l:HorizontalLayout >
 						<m:NumericContent id="failRtNum" scale="/" withMargin="false"/>
 						<m:NumericContent id="totalNum" withMargin="false"/>
