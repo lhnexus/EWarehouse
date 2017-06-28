@@ -2,7 +2,7 @@
 	<Page title="Charts" width="100%" enableScrolling="true">
 		<l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
 			<l:BlockLayoutRow>
-				<l:BlockLayoutCell width="50%">
+				<l:BlockLayoutCell width="50%" height="100%">
 					<l:BlockLayout background="Dashboard">
 						<l:BlockLayoutRow>
 							<l:BlockLayoutCell>
@@ -54,9 +54,9 @@
 						</l:BlockLayoutRow>
 					</l:BlockLayout>
 				</l:BlockLayoutCell>
-				<l:BlockLayoutCell width="50%">
+				<l:BlockLayoutCell class="sapUiNoMarginTop" width="50%" height="100%">
 					<!--<Title text="BlockCell-2" titleStyle="H2" width="100%"/>-->
-					<mvc:XMLView id="geoMap" viewName="Panels.GeoMap.factory"/>
+					<mvc:XMLView id="geoMap" height="100%" width="100%" viewName="Panels.GeoMap.factory"/>
 				</l:BlockLayoutCell>
 			</l:BlockLayoutRow>
 		</l:BlockLayout>

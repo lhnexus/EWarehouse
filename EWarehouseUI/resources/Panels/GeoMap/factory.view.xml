@@ -1,16 +1,45 @@
 <mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="Panels.GeoMap.factory"
-	xmlns:vbm="sap.ui.vbm">
+	xmlns:vbm="sap.ui.vbm" xmlns:l="sap.ui.layout">
 	<!--xmlns:gmaps="openui5.googlemaps" -->
-	<App>
-		<pages>
-			<Page showHeader="false">
-				<content>
-					<!--<gmaps:Map id="factoryMap" height="900px" zoom="18" lat="22.651694" lng="114.044770" apiKey="AIzaSyD6EmAk92gaGzjYVYU-ebd_BK-rgejSoZ0">-->
-					<!--	<gmaps:markers>-->
-					<!--		<gmaps:Marker lat="22.651694" lng="114.044770" icon="http://maps.google.com/mapfiles/kml/pal2/icon21.png" click="onMarkerClick"></gmaps:Marker>-->
-					<!--	</gmaps:markers>-->
-					<!--</gmaps:Map>-->
-					<vbm:GeoMap id="GeoMap" width="100%" height="100%">
+	<!--<Page id="page" showHeader="false">-->
+	<!--<content>-->
+	<!--<gmaps:Map id="factoryMap" height="900px" zoom="18" lat="22.651694" lng="114.044770" apiKey="AIzaSyD6EmAk92gaGzjYVYU-ebd_BK-rgejSoZ0">-->
+	<!--	<gmaps:markers>-->
+	<!--		<gmaps:Marker lat="22.651694" lng="114.044770" icon="http://maps.google.com/mapfiles/kml/pal2/icon21.png" click="onMarkerClick"></gmaps:Marker>-->
+	<!--	</gmaps:markers>-->
+	<!--</gmaps:Map>-->
+	<Page id="factpage" showHeader="false">
+		<content>
+			<l:FixFlex class="fixFlexFixedSize" fixContentSize="1300px">
+				<l:fixContent id="flex1">
+					<Panel height="90px">
+						<Toolbar class="sapUiNoMarginTop sapUiNoMarginLeft" id="toolbar2">
+							<Button text="Factory A" press="onClickFA">
+								<layoutData>
+									<ToolbarLayoutData shrinkable="true"/>
+								</layoutData>
+							</Button>
+							<!--<ToolbarSpacer/>-->
+							<Button text="Factory B">
+								<layoutData>
+									<ToolbarLayoutData shrinkable="true"/>
+								</layoutData>
+							</Button>
+								<Button text="Factory C">
+								<layoutData>
+									<ToolbarLayoutData shrinkable="true"/>
+								</layoutData>
+							</Button>
+								<Button text="Factory B">
+								<layoutData>
+									<ToolbarLayoutData shrinkable="true"/>
+								</layoutData>
+							</Button>
+						</Toolbar>
+					</Panel>
+				</l:fixContent>
+				<l:fixContent id="flex2">
+					<vbm:GeoMap id="GeoMap" width="100%" height="1050px" click="onClickmap">
 						<vbm:vos>
 							<vbm:Areas items="{/Areas}" contextMenu="onContextMenuItem" click="onClickAreas">
 								<vbm:Area id="Area" click="onClickArea" contextMenu="onContextMenuArea" tooltip="{B}" color="{C}" colorBorder="rgba(118,118,118,0.6)"
@@ -22,8 +51,10 @@
 							<!--</vbm:Areas>-->
 						</vbm:vos>
 					</vbm:GeoMap>
-				</content>
-			</Page>
-		</pages>
-	</App>
+				</l:fixContent>
+			</l:FixFlex>
+		</content>
+	</Page>
+	<!--</content>-->
+	<!--</Page>-->
 </mvc:View>

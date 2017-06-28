@@ -3,6 +3,7 @@ sap.ui.define(['sap/m/MessageToast'],
 		"use strict";
 
 		return sap.ui.controller("Panels.GeoMap.factory", {
+
 			onInit: function() {
 
 				var oModel = new sap.ui.model.json.JSONModel();
@@ -17,7 +18,7 @@ sap.ui.define(['sap/m/MessageToast'],
 						"name": "Openstreetmap",
 						"tileX": "256",
 						"tileY": "256",
-						"maxLOD": "20",
+						"maxLOD": "18",
 						"Source": [{
 							"id": "s1",
 							// "url": "http://a.tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
@@ -57,23 +58,32 @@ sap.ui.define(['sap/m/MessageToast'],
 				this.oGeoMap.setRefMapLayerStack("DEFAULT");
 				this.oGeoMap.setInitialZoom(18);
 
-				var startaddress = "foxconn+shenzhen";
-				var lat;
-				var lon;
+				// var startaddress = "foxconn+shenzhen";
+				// var lat;
+				// var lon;
 
-				$.ajax({
-					url: "http://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + encodeURI(startaddress),
-					encoding: "UTF-8",
-					dataType: "json",
-					async: false,
-					success: function(json) {
-						lat = json[0].lat;
-						lon = json[0].lon;
-					}
-				});
+				// $.ajax({
+				// 	url: "http://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + encodeURI(startaddress),
+				// 	encoding: "UTF-8",
+				// 	dataType: "json",
+				// 	async: false,
+				// 	success: function(json) {
+				// 		lat = json[0].lat;
+				// 		lon = json[0].lon;
+				// 	}
+				// });
 
 				//this.oGeoMap.setInitialPosition(lon + ";" + lat + ";0");
 				this.oGeoMap.setInitialPosition("114.04109;22.65375;0");
+				this.oGeoMap.setVisualFrame({
+					"minLon": 114.03829,
+					"maxLon": 114.04337,
+					"minLat": 22.65158,
+					"maxLat": 22.65596,
+					"minLOD": 18
+				});
+				
+				this.oPage = this.getView().byId("factpage"); //Get Hold of page
 
 				////////////////////HBOX Codes
 
@@ -90,10 +100,30 @@ sap.ui.define(['sap/m/MessageToast'],
 
 			},
 
-			onAferRendering: function() {
-
+			onAfterRendering: function() {
+				var mPage = this.getView().byId("factpage"); //Get Hold of page
+				mPage.scrollTo(0,0);
+				MessageToast.show("After rendering.");
 			},
 
+			onClickAreas: function() {
+
+				this.oPage.scrollTo(0, 0);
+				// this.getView().byId("fixroot").scrollTo(0,0);
+				MessageToast.show("The factory is pressed.");
+			},
+			
+			onClickFA  : function() {
+				this.getView().byId("GeoMap").getModel().refresh(true);
+				MessageToast.show("FA is pressed.");
+			},
+
+			onClickmap: function() {
+
+				this.oPage.scrollTo(0, 0);
+				// this.getView().byId("fixroot").scrollTo(0,0);
+				MessageToast.show("The GeoMap is pressed.");
+			},
 			// onMarkerClick: function(oEvent) {
 			// 	this.oMap.setOptions({styles: this.ostyles["silver"]});
 			// },
