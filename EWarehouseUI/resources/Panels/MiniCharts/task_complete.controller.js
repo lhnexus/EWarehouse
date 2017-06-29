@@ -16,12 +16,12 @@ sap.ui.define([ "sap/ui/model/odata/v2/ODataModel", "sap/ui/core/util/MockServer
             this.getView().setModel(oModel);
             
         	var oTaskRateNum = this.getView().byId("taskRateNum");
-			oTaskRateNum.bindProperty("value","/TaskRate/Value");
-			oTaskRateNum.bindProperty("scale","/TaskRate/scale");
+			oTaskRateNum.bindProperty("value","/TaskRate/0/Value");
+			oTaskRateNum.bindProperty("scale","/TaskRate/0/scale");
 			
 			var oTaskRateData = this.getView().byId("taskRateData");
-			oTaskRateData.bindProperty("value","/TaskRate/Value");
-			oTaskRateData.bindProperty("color","/TaskRate/color");
+			oTaskRateData.bindProperty("value","/TaskRate/0/Value");
+			oTaskRateData.bindProperty("color","/TaskRate/0/color");
  
 		}
 	

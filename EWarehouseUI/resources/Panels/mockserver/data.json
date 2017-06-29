@@ -1,11 +1,29 @@
 {
-	"TaskRate": {
+	"TaskRate": [{
 		"Value": 75,
 		"scale": "%",
 		"MinValue": 0,
 		"MaxValue": 100,
 		"color": "Good"
-	},
+	},{
+		"Value": 79,
+		"scale": "%",
+		"MinValue": 0,
+		"MaxValue": 100,
+		"color": "Good"
+	},{
+		"Value": 54,
+		"scale": "%",
+		"MinValue": 0,
+		"MaxValue": 100,
+		"color": "Critical"
+	},{
+		"Value": 23,
+		"scale": "%",
+		"MinValue": 0,
+		"MaxValue": 100,
+		"color": "Error"
+	}],
 	"OnTimeDelRate": {
 		"Value": 95,
 		"scale": "%",

@@ -127,27 +127,80 @@ sap.ui.define(['sap/m/MessageToast'],
 			},
 
 			onClickFA: function() {
+				//update chart values
+				var taskRateNum = sap.ui.getCore().byId("Panels_Charts--task_complete--taskRateNum");
+				taskRateNum.bindProperty("value","/TaskRate/0/Value");
+				
+				var taskRateData = sap.ui.getCore().byId("Panels_Charts--task_complete--targetSmartChart");
+				var oActual = new sap.suite.ui.microchart.BulletMicroChartData();
+				var gConfigModel = this.getView().getModel();
+	
+				oActual.setValue(parseFloat(gConfigModel.getProperty("/TaskRate/0/Value")));
+				oActual.setColor(gConfigModel.getProperty("/TaskRate/0/color"));
+				taskRateData.setActual(oActual);
+				
+				
+				//update map location
 				this.oGeoMap.setInitialPosition("114.04109;22.65375;0");
 				this.oGeoMap.setInitialZoom(18);
 				// sap.ui.getCore().byId("factpage").getModel().refresh(true);
 				// MessageToast.show("FA is pressed.");
 			},
 			onClickFB: function() {
-
+				//update chart values
+				var taskRateNum = sap.ui.getCore().byId("Panels_Charts--task_complete--taskRateNum");
+				taskRateNum.bindProperty("value","/TaskRate/1/Value");
+				
+				var taskRateData = sap.ui.getCore().byId("Panels_Charts--task_complete--targetSmartChart");
+				var oActual = new sap.suite.ui.microchart.BulletMicroChartData();
+				var gConfigModel = this.getView().getModel();
+	
+				oActual.setValue(parseFloat(gConfigModel.getProperty("/TaskRate/1/Value")));
+				oActual.setColor(gConfigModel.getProperty("/TaskRate/1/color"));
+				taskRateData.setActual(oActual);
+				
+				
+				//update map location
 				this.oGeoMap.setInitialPosition("113.8457;34.5533;0");
 				this.oGeoMap.setInitialZoom(15);
 				// MessageToast.show("FA is pressed.");
 			},
 
 			onClickFC: function() {
-
+				//update chart values
+				var taskRateNum = sap.ui.getCore().byId("Panels_Charts--task_complete--taskRateNum");
+				taskRateNum.bindProperty("value","/TaskRate/2/Value");
+				
+				var taskRateData = sap.ui.getCore().byId("Panels_Charts--task_complete--targetSmartChart");
+				var oActual = new sap.suite.ui.microchart.BulletMicroChartData();
+				var gConfigModel = this.getView().getModel();
+	
+				oActual.setValue(parseFloat(gConfigModel.getProperty("/TaskRate/2/Value")));
+				oActual.setColor(gConfigModel.getProperty("/TaskRate/2/color"));
+				taskRateData.setActual(oActual);
+				
+				
+				//update map location
 				this.oGeoMap.setInitialPosition("114.1073;23.1415;0");
 				this.oGeoMap.setInitialZoom(16);
 				//MessageToast.show("The GeoMap is pressed.");
 			},
 
 			onClickFD: function() {
-
+				//update chart values
+				var taskRateNum = sap.ui.getCore().byId("Panels_Charts--task_complete--taskRateNum");
+				taskRateNum.bindProperty("value","/TaskRate/3/Value");
+				
+				var taskRateData = sap.ui.getCore().byId("Panels_Charts--task_complete--targetSmartChart");
+				var oActual = new sap.suite.ui.microchart.BulletMicroChartData();
+				var gConfigModel = this.getView().getModel();
+	
+				oActual.setValue(parseFloat(gConfigModel.getProperty("/TaskRate/3/Value")));
+				oActual.setColor(gConfigModel.getProperty("/TaskRate/3/color"));
+				taskRateData.setActual(oActual);
+				
+				
+				//update map location
 				this.oGeoMap.setInitialPosition("112.5844;37.7467;0");
 				this.oGeoMap.setInitialZoom(16);
 				//MessageToast.show("The GeoMap is pressed.");
