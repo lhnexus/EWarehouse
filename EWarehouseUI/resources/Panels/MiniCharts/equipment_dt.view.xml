@@ -7,10 +7,10 @@
 					<m:Label text="Equipment Downtime Rate"/>
 					<m:Label text="Last 7 Days"/>
 					<m:NumericContent id="equipmentDtNum" class="sapUiSmallMargin"/>
-					<LineMicroChart size="L" threshold="{/EquipmentDtRate/Threshold}" color="{/EquipmentDtRate/color}" press="press"
-						points="{ path: '/EquipmentDtRate/points', templateShareable: true }" class="sapUiTinyMarginTop">
-						<LineMicroChartEmphasizedPoint x="{x}" y="{y}" color="{color}" show="{show}"/>
-					</LineMicroChart>
+					<!--<LineMicroChart size="L" threshold="{/EquipmentDtRate/Threshold}" color="{/EquipmentDtRate/color}" press="press"-->
+					<!--	points="{ path: '/EquipmentDtRate/points', templateShareable: true }" class="sapUiTinyMarginTop">-->
+					<!--	<LineMicroChartEmphasizedPoint x="{x}" y="{y}" color="{color}" show="{show}"/>-->
+					<!--</LineMicroChart>-->
 				</l:content>
 			</l:VerticalLayout>
 		</m:Panel>
