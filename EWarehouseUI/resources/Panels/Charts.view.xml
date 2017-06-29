@@ -56,7 +56,7 @@
 				</l:BlockLayoutCell>
 				<l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="50%" height="100%">
 					<!--<Title text="BlockCell-2" titleStyle="H2" width="100%"/>-->
-					<mvc:XMLView id="geoMap" width="100%" height="900px" viewName="Panels.GeoMap.factory"/>
+					<mvc:XMLView id="geoMap" width="100%" height="1300px" viewName="Panels.GeoMap.factory"/>
 				</l:BlockLayoutCell>
 			</l:BlockLayoutRow>
 		</l:BlockLayout>

@@ -14,23 +14,23 @@
 				<l:fixContent id="flex1">
 					<Panel height="90px">
 						<Toolbar class="sapUiNoMarginTop sapUiNoMarginLeft" id="toolbar2">
-							<Button text="Factory A" press="onClickFA">
+							<Button text="Shenzhen Warehouses" press="onClickFA" type="Accept">
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
 							</Button>
 							<!--<ToolbarSpacer/>-->       
-							<Button text="Factory B">
+							<Button text="Zhenzhou Warehouses" press="onClickFB" type="Reject">
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
 							</Button>
-								<Button text="Factory C">
+								<Button text="Huizhou Warehouses" press="onClickFC" type="Emphasized">
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
 							</Button>
-								<Button text="Factory B">
+								<Button text="Taiyuan Warehouses" press="onClickFD" >
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
@@ -39,7 +39,7 @@
 					</Panel>
 				</l:fixContent>
 				<l:fixContent id="flex2">
-					<vbm:GeoMap id="GeoMap" width="100%" height="1050px" click="onClickmap">
+					<vbm:GeoMap id="GeoMap" width="100%" height="1050px">
 						<vbm:vos>
 							<vbm:Areas items="{/Areas}" contextMenu="onContextMenuItem" click="onClickAreas">
 								<vbm:Area id="Area" click="onClickArea" contextMenu="onContextMenuArea" tooltip="{B}" color="{C}" colorBorder="rgba(118,118,118,0.6)"
