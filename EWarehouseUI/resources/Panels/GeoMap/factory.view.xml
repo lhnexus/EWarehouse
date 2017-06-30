@@ -14,23 +14,23 @@
 				<l:fixContent id="flex1">
 					<Panel height="90px">
 						<Toolbar class="sapUiNoMarginTop sapUiNoMarginLeft" id="toolbar2">
-							<Button text="Shenzhen Warehouses" press="onClickFA" type="Accept">
+							<Button text="Shenzhen Warehouses" icon="sap-icon://factory" press="onClickFA" type="Accept">
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
 							</Button>
 							<!--<ToolbarSpacer/>-->       
-							<Button text="Zhenzhou Warehouses" press="onClickFB" type="Reject">
+							<Button text="Zhenzhou Warehouses" icon="sap-icon://factory" press="onClickFB" type="Reject">
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
 							</Button>
-								<Button text="Huizhou Warehouses" press="onClickFC" type="Emphasized">
+								<Button text="Huizhou Warehouses" icon="sap-icon://factory" press="onClickFC" type="Emphasized">
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
 							</Button>
-								<Button text="Taiyuan Warehouses" press="onClickFD" >
+								<Button text="Taiyuan Warehouses" icon="sap-icon://factory" press="onClickFD" >
 								<layoutData>
 									<ToolbarLayoutData shrinkable="true"/>
 								</layoutData>
