@@ -274,16 +274,15 @@ sap.ui.define(['sap/m/MessageToast'],
 
 				var oOnTimeChart = sap.ui.getCore().byId("Panels_Charts--ontime_delivery--ontimeChart");
 				var length = gConfigModel.getData().OnTimeDelRate[fnum].Vperday.length;
-				var oCol = new sap.suite.ui.microchart.ColumnMicroChartData();
+
+				oOnTimeChart.destroyColumns();
 
 				if (wnum >= 0) {
 					oOnTimeDelNum.setValue(gConfigModel.getData().OnTimeDelRate[fnum].factorys[wnum].Value);
 					oOnTimeDelNum.setIndicator(eval("sap.m.DeviationIndicator." + gConfigModel.getData().OnTimeDelRate[fnum].factorys[wnum].Indicator));
 
-					oOnTimeChart.destroyColumns();
-
 					for (var i = 0; i < length; i++) {
-
+						var oCol = new sap.suite.ui.microchart.ColumnMicroChartData();
 						oCol.setValue(parseFloat(gConfigModel.getData().OnTimeDelRate[fnum].factorys[wnum].Vperday[i].colvalue));
 						oCol.setColor(eval("sap.m.ValueColor." + gConfigModel.getData().OnTimeDelRate[fnum].factorys[wnum].Vperday[i].ValueColor));
 						oOnTimeChart.addColumn(oCol);
@@ -293,10 +292,8 @@ sap.ui.define(['sap/m/MessageToast'],
 					oOnTimeDelNum.setValue(gConfigModel.getData().OnTimeDelRate[fnum].Value);
 					oOnTimeDelNum.setIndicator(eval("sap.m.DeviationIndicator." + gConfigModel.getData().OnTimeDelRate[fnum].Indicator));
 
-					oOnTimeChart.destroyColumns();
-
 					for (var i = 0; i < length; i++) {
-
+						var oCol = new sap.suite.ui.microchart.ColumnMicroChartData();
 						oCol.setValue(parseFloat(gConfigModel.getData().OnTimeDelRate[fnum].Vperday[i].colvalue));
 						oCol.setColor(eval("sap.m.ValueColor." + gConfigModel.getData().OnTimeDelRate[fnum].Vperday[i].ValueColor));
 						oOnTimeChart.addColumn(oCol);
