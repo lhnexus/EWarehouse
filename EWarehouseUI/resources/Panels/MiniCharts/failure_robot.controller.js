@@ -13,10 +13,10 @@ sap.ui.define(['sap/m/MessageToast'],
             this.getView().setModel(oModel);
 
 			var oFailRtNum = this.getView().byId("failRtNum");
-			oFailRtNum.bindProperty("value","/FailureRate/Value");
+			oFailRtNum.bindProperty("value","/FailureRate/0/Value");
 			
 			var oTotalNum = this.getView().byId("totalNum");
-			oTotalNum.bindProperty("value","/FailureRate/Total");
+			oTotalNum.bindProperty("value","/FailureRate/0/Total");
 			
         	
 		},

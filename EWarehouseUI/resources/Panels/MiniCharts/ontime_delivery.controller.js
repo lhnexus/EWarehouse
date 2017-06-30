@@ -13,23 +13,22 @@ sap.ui.define(['sap/m/MessageToast'],
             this.getView().setModel(oModel);
 
 			var oOnTimeDelNum = this.getView().byId("onTimeDelNum");
-			oOnTimeDelNum.bindProperty("value","/OnTimeDelRate/Value");
-			oOnTimeDelNum.bindProperty("scale","/OnTimeDelRate/scale");
-			oOnTimeDelNum.bindProperty("indicator","/OnTimeDelRate/Indicator");
+			oOnTimeDelNum.bindProperty("value","/OnTimeDelRate/0/Value");
+			oOnTimeDelNum.bindProperty("scale","/OnTimeDelRate/0/scale");
+			oOnTimeDelNum.bindProperty("indicator","/OnTimeDelRate/0/Indicator");
 			
 			
         	var oOnTimeChart = this.getView().byId("ontimeChart");
         	
-        	var colvalue = oModel.getProperty("/OnTimeDelRate/colvalue");
+        	var length = oModel.getData().OnTimeDelRate[0].Vperday.length;                         
+        	
+        	
+        	//var colvalue = oModel.getProperty("/OnTimeDelRate/colvalue");
         	//console.log(items);
-        	for(var i=0;i<7;i++){
+        	for(var i=0;i<length;i++){
         		var oCol = new sap.suite.ui.microchart.ColumnMicroChartData();
-        		//var cdata = parseFloat(oModel.getProperty("/TaskRate/colvalue"));
-        	
-        		// oCol.bindProperty("value","/TaskRate/colvalue");
-        	
-        		oCol.setValue(parseFloat(colvalue));
-        		oCol.setColor(sap.m.ValueColor.Good);
+          		oCol.setValue(parseFloat(oModel.getData().OnTimeDelRate[0].Vperday[i].colvalue));
+        		oCol.setColor(eval("sap.m.ValueColor."+oModel.getData().OnTimeDelRate[0].Vperday[i].ValueColor));
         		oOnTimeChart.addColumn(oCol);
         	}
         

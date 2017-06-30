@@ -1,5 +1,5 @@
 <mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:base="sap.ui.base" controllerName="Panels.Charts">
-	<Page title="Charts" width="100%" enableScrolling="true">
+	<Page title="EWarehouse" width="100%" enableScrolling="true">
 		<l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
 			<l:BlockLayoutRow>
 				<l:BlockLayoutCell id="cellleft" width="50%" height="100%">

@@ -15,7 +15,7 @@
 					<l:HorizontalLayout>
 						<m:NumericContent id="alertNum" withMargin="false"/>
 						<m:FlexBox justifyContent="End">
-						<core:Icon src="sap-icon://alert" class="sapUiSmallMargin" size="2rem" color="red" press="handleStethoscopePress">
+						<core:Icon id="alerticon" class="sapUiSmallMargin" size="2rem" press="handleStethoscopePress">
 						</core:Icon>
 						</m:FlexBox>
 					</l:HorizontalLayout >

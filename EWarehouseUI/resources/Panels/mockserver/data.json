@@ -4,33 +4,516 @@
 		"scale": "%",
 		"MinValue": 0,
 		"MaxValue": 100,
-		"color": "Good"
-	},{
+		"color": "Good",
+		"factorys": [{
+			"Value": 78,
+			"color": "Good"
+		}, {
+			"Value": 72,
+			"color": "Good"
+		}, {
+			"Value": 75,
+			"color": "Good"
+		}, {
+			"Value": 76,
+			"color": "Good"
+		}, {
+			"Value": 81,
+			"color": "Good"
+		}]
+	}, {
 		"Value": 79,
 		"scale": "%",
 		"MinValue": 0,
 		"MaxValue": 100,
-		"color": "Good"
-	},{
+		"color": "Good",
+		"factorys": [{
+			"Value": 83,
+			"color": "Good"
+		}, {
+			"Value": 77,
+			"color": "Good"
+		}, {
+			"Value": 81,
+			"color": "Good"
+		}, {
+			"Value": 76,
+			"color": "Good"
+		}]
+	}, {
 		"Value": 54,
 		"scale": "%",
 		"MinValue": 0,
 		"MaxValue": 100,
-		"color": "Critical"
-	},{
+		"color": "Error",
+		"factorys": [{
+			"Value": 66,
+			"color": "Critical"
+		}, {
+			"Value": 50,
+			"color": "Error"
+		}, {
+			"Value": 53,
+			"color": "Error"
+		}]
+	}, {
 		"Value": 23,
 		"scale": "%",
 		"MinValue": 0,
 		"MaxValue": 100,
-		"color": "Error"
+		"color": "Error",
+		"factorys": [{
+			"Value": 19,
+			"color": "Error"
+		}, {
+			"Value": 28,
+			"color": "Error"
+		}, {
+			"Value": 31,
+			"color": "Error"
+		}, {
+			"Value": 23,
+			"color": "Error"
+		}, {
+			"Value": 22,
+			"color": "Error"
+		}]
 	}],
-	"OnTimeDelRate": {
+	"OnTimeDelRate": [{
 		"Value": 95,
 		"scale": "%",
 		"Indicator": "Up",
-		"ValueColor": "Good",
-		"colvalue": "100"
-	},
+		"Vperday": [{
+			"colvalue": "95",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "94",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "96",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "95",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "93",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "97",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "95",
+			"ValueColor": "Good"
+		}],
+		"factorys": [{
+			"Value": 97,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "96",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "96",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "98",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 94,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "93",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "92",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "97",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "96",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 93,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "92",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "96",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "97",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "98",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "97",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 98,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "99",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "100",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "96",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "97",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "92",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}]
+		}]
+	}, {
+		"Value": 93,
+		"scale": "%",
+		"Indicator": "Up",
+		"Vperday": [{
+			"colvalue": "94",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "92",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "91",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "94",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "90",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "96",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "94",
+			"ValueColor": "Good"
+		}],
+		"factorys": [{
+			"Value": 95,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "93",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "97",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "92",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "7",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "91",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 90,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "87",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "93",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "88",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "92",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "91",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "90",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 93,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "86",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "95",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "90",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "97",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "89",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "94",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "91",
+				"ValueColor": "Good"
+			}]
+		}]
+	}, {
+		"Value": 78,
+		"scale": "%",
+		"Indicator": "Down",
+		"Vperday": [{
+			"colvalue": "94",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "70",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "68",
+			"ValueColor": "Critical"
+		}, {
+			"colvalue": "71",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "73",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "75",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "95",
+			"ValueColor": "Good"
+		}],
+		"factorys": [{
+			"Value": 77,
+			"Indicator": "Down",
+			"Vperday": [{
+				"colvalue": "70",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "71",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "85",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "86",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "78",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "77",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "76",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 79,
+			"Indicator": "Down",
+			"Vperday": [{
+				"colvalue": "76",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "73",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "75",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "74",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "79",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "80",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "76",
+				"ValueColor": "Good"
+			}]
+		}]
+
+	}, {
+		"Value": 63,
+		"scale": "%",
+		"Indicator": "Down",
+		"Vperday": [{
+			"colvalue": "91",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "78",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "69",
+			"ValueColor": "Critical"
+		}, {
+			"colvalue": "71",
+			"ValueColor": "Good"
+		}, {
+			"colvalue": "55",
+			"ValueColor": "Error"
+		}, {
+			"colvalue": "41",
+			"ValueColor": "Error"
+		}, {
+			"colvalue": "36",
+			"ValueColor": "Error"
+		}],
+		"factorys": [{
+			"Value": 59,
+			"Indicator": "Down",
+			"Vperday": [{
+				"colvalue": "54",
+				"ValueColor": "Error"
+			}, {
+				"colvalue": "63",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "60",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "50",
+				"ValueColor": "Error"
+			}, {
+				"colvalue": "53",
+				"ValueColor": "Error"
+			}, {
+				"colvalue": "67",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "69",
+				"ValueColor": "Critical"
+			}]
+		}, {
+			"Value": 67,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "67",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "73",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "66",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "74",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "60",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "80",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "76",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 64,
+			"Indicator": "Down",
+			"Vperday": [{
+				"colvalue": "67",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "64",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "70",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "71",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "66",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "73",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "71",
+				"ValueColor": "Good"
+			}]
+		}, {
+			"Value": 65,
+			"Indicator": "Up",
+			"Vperday": [{
+				"colvalue": "63",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "74",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "67",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "72",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "64",
+				"ValueColor": "Critical"
+			}, {
+				"colvalue": "74",
+				"ValueColor": "Good"
+			}, {
+				"colvalue": "73",
+				"ValueColor": "Good"
+			}]
+		}]
+	}],
 	"CapacityUtRate": {
 		"Value": 73,
 		"scale": "%",
@@ -103,14 +586,152 @@
 			"show": true
 		}]
 	},
-	"FailureRate": {
+	"FailureRate": [{
 		"Value": 4,
-		"Total": 120
-	},
-	"Alert": {
+		"Total": 120,
+		"factorys": [{
+			"Value": 1,
+			"Total": 36
+		}, {
+			"Value": 2,
+			"Total": 30
+		}, {
+			"Value": 0,
+			"Total": 24
+		}, {
+			"Value": 1,
+			"Total": 30
+		}]
+	}, {
+		"Value": 2,
+		"Total": 80,
+		"factorys": [{
+			"Value": 0,
+			"Total": 45
+		}, {
+			"Value": 1,
+			"Total": 20
+		}, {
+			"Value": 1,
+			"Total": 15
+		}]
+	}, {
+		"Value": 6,
+		"Total": 54,
+		"factorys": [{
+			"Value": 2,
+			"Total": 14
+		}, {
+			"Value": 4,
+			"Total": 40
+		}]
+	}, {
+		"Value": 15,
+		"Total": 115,
+		"factorys": [{
+			"Value": 6,
+			"Total": 47
+		}, {
+			"Value": 5,
+			"Total": 33
+		}, {
+			"Value": 1,
+			"Total": 15
+		}, {
+			"Value": 3,
+			"Total": 20
+		}]
+	}],
+	"Alert": [{
 		"Value": 1,
-		"color": "Critical"
-	},
+		"color": "Critical",
+		"Icon": "message-warning",
+		"Icolor": "orange",
+		"factorys": [{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		},{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		},{
+			"Value": 1,
+			"color": "Critical",
+			"Icon": "message-warning",
+			"Icolor": "orange"
+		},{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		}]
+	}, {
+		"Value": 0,
+		"color": "Good",
+		"Icon": "message-information",
+		"Icolor": "green",
+		"factorys": [{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		},{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		},{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		}]
+	}, {
+		"Value": 9,
+		"color": "Error",
+		"Icon": "message-warning",
+		"Icolor": "red",
+		"factorys": [{
+			"Value": 4,
+			"color": "Critical",
+			"Icon": "message-warning",
+			"Icolor": "orange"
+		},{
+			"Value": 5,
+			"color": "Error",
+			"Icon": "message-warning",
+			"Icolor": "red"
+		}]
+	}, {
+		"Value": 11,
+		"color": "Error",
+		"Icon": "message-warning",
+		"Icolor": "red",
+		"factorys": [{
+			"Value": 2,
+			"color": "Critical",
+			"Icon": "message-warning",
+			"Icolor": "orange"
+		},{
+			"Value": 3,
+			"color": "Critical",
+			"Icon": "message-warning",
+			"Icolor": "orange"
+		},{
+			"Value": 0,
+			"color": "Good",
+			"Icon": "message-information",
+			"Icolor": "green"
+		},{
+			"Value": 6,
+			"color": "Error",
+			"Icon": "message-warning",
+			"Icolor": "red"
+		}]
+	}],
 
 	"Areas": [{
 		"B": "shenzhen warehouse A",
@@ -136,7 +757,7 @@
 		"D": "rgba(255;255;51;0.8)",
 		"H": "114.03970;22.65345;0;114.04132;22.65268;0;114.04108;22.65227;0;114.03948;22.65301;0",
 		"K": "EB/FTnDNsWnhAAAACkKHUg=="
-	},{
+	}, {
 		"B": "zhengzhou warehouse A",
 		"C": "rgba(182;217;87;0.6)",
 		"D": "rgba(255;255;51;0.8)",
