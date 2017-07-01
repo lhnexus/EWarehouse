@@ -23,7 +23,46 @@ sap.ui.define(['sap/m/MessageToast'],
 		},
 		press: function (oEvent) {
 			MessageToast.show("The column micro chart is pressed.");
-		}
+		},
+
+        onAfterRendering: function(){
+
+            var oAlertNum = this.getView().byId("alertNum");
+            var oAlertIcon = this.getView().byId("alerticon");
+
+            this._loadData(oAlertNum,oAlertIcon);
+
+        },
+
+
+        _loadData: function(oElement, oElement2){
+
+
+            setInterval(function(){
+
+                var num = Math.floor(Math.random()*10);
+
+                oElement.setValue(num);
+
+                if(num>=5){
+                    oElement.setValueColor("Error");
+                    oElement2.setSrc("sap-icon://message-warning");
+                    oElement2.setColor("red");
+				}
+				else if(num==0){
+                    oElement.setValueColor("Good");
+                    oElement2.setSrc("sap-icon://message-information");
+                    oElement2.setColor("green");
+
+				}
+				else{
+                    oElement.setValueColor("Critical");
+                    oElement2.setSrc("sap-icon://message-warning");
+                    oElement2.setColor("orange");
+				}
+            },1000);
+
+        }
 		
 		
  	});

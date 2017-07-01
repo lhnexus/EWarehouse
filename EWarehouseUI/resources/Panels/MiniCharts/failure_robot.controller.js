@@ -17,12 +17,40 @@ sap.ui.define(['sap/m/MessageToast'],
 			
 			var oTotalNum = this.getView().byId("totalNum");
 			oTotalNum.bindProperty("value","/FailureRate/0/Total");
+
+
 			
         	
 		},
-		press: function (oEvent) {
+
+
+        press: function (oEvent) {
 			MessageToast.show("The column micro chart is pressed.");
-		}
+		},
+
+		onAfterRendering: function(){
+
+            var oFailRtNum = this.getView().byId("failRtNum");
+            var oTotalNum = this.getView().byId("totalNum");
+            var oModel = this.getView().getModel();
+            this._loadData(oFailRtNum,oTotalNum);
+
+		},
+
+
+        _loadData: function(oElement, oElement2){
+
+			var max = oElement2.getValue();
+			var min = oElement.getValue();
+
+            setInterval(function(){
+
+                var num = Math.floor(parseInt(min)+Math.random()*(parseInt(max)-parseInt(min)));
+
+            	oElement.setValue(num);
+            	},1000);
+
+        }
 		
 		
  	});
