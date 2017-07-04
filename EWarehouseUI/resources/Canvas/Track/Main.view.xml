@@ -1,0 +1,24 @@
+<mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:base="sap.ui.base"
+          controllerName="Track.Main">
+    <Page title="EWarehouse" width="1834px" enableScrolling="true">
+        <l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
+            <l:BlockLayoutRow>
+                <l:BlockLayoutCell>
+                    <Title
+                            text="Charts"
+                            titleStyle="H2"
+                            width="100%"/>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+            <l:BlockLayoutRow >
+                    <l:BlockLayoutCell id="cellleft" width="60%" class="sapUiNoContentPadding">
+                        <mvc:XMLView id="tracking" viewName="Track.tracking" height="750px" class="sapUiNoMarginTop"/>
+                    </l:BlockLayoutCell>
+                    <l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="40%">
+                        <Title text="Right" titleStyle="H2" width="100%"/>
+                    </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+
+    </Page>
+</mvc:View>
