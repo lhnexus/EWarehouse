@@ -2,121 +2,150 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 	function(Controller, ODataModel) {
 	"use strict";
  
-	return Controller.extend("Track.tracking", {
+	return Controller.extend("Canvas.Track.tracking", {
 		onInit: function() {
 			// this._initMockServer();
+            var oModel = new sap.ui.model.json.JSONModel();
+
+            // oModel.setData(data);
+            oModel.loadData("Canvas/mockserver/data.json",null,false);
+            //this.getView().setModel(oModel);
+            this.getView().setModel(oModel);
         },
 
         onAfterRendering: function(){
             var minArea, curColor;
 
-            var svg = d3.select("#Track_Main--tracking--tpage-cont").append("svg")
+            var svg = d3.select("#Canvas_Main--tracking--tpage-cont").append("svg")
                 .attr("width", 1089)
                 .attr("height", 750)
                 .attr("stroke",'rgb(175,122,197)');
-
+            var oMovingModel = this.getView().getModel();
+            var length = oMovingModel.getData().Locations.length;
+            var liter = 0;
             var rect = svg.append('rect').attr('x',0).attr('y',300).attr('width',100).attr('height',50).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
-            //var that = this;
-            //this.animation(svg,rect,that);
 
-            animation();
+            //animation();
 
-            function animation() {
-                svg.transition()
-                    .duration(7500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(50, 450);
-                        var areay = d3.interpolateRound(300,300);
+            moving();
+            function moving(){
 
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
+                if(liter<length){
+                    svg.transition()
+                        .duration(7500)
+                        .tween("precision", function() {
+                            var areax = d3.interpolateRound(oMovingModel.getData().Locations[liter].x, oMovingModel.getData().Locations[liter+1].x);
+                            var areay = d3.interpolateRound(oMovingModel.getData().Locations[liter].y,oMovingModel.getData().Locations[liter+1].y);
+                            liter = liter + 1;
+                            return function(t) {
+                                var minAreax = areax(t);
+                                var minAreay = areay(t);
 
-                            render(minAreax,minAreay);
-                        };
-                    })
-                    .transition()
-                    .duration(3500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(450, 450);
-                        var areay = d3.interpolateRound(300,300);
-                        var angle = d3.interpolateRound(0,-90);
+                                render(minAreax,minAreay);
+                            };
+                        })
+                        .transition()
+                        .each("end", moving());
+                }
 
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
-                            var minAngle = angle(t);
-                            renderRotate(minAreax,minAreay,minAngle);
-                        };
-                    })
-                    .transition()
-                    .duration(3500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(450, 450);
-                        var areay = d3.interpolateRound(300,100);
-
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
-                            render(minAreax,minAreay);
-                        };
-                    })
-                    .transition()
-                    .duration(3500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(450, 350);
-                        var areay = d3.interpolateRound(100,100);
-
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
-
-                            render(minAreax,minAreay);
-                        };
-                    })
-                    .transition()
-                    .duration(3500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(350, 450);
-                        var areay = d3.interpolateRound(100,100);
-
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
-
-                            render(minAreax,minAreay);
-                        };
-                    })
-                    .transition()
-                    .duration(3500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(450, 450);
-                        var areay = d3.interpolateRound(100,300);
-
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
-
-                            render(minAreax,minAreay);
-                        };
-                    })
-                    .transition()
-                    .duration(7500)
-                    .tween("precision", function() {
-                        var areax = d3.interpolateRound(450, 50);
-                        var areay = d3.interpolateRound(300,300);
-
-                        return function(t) {
-                            var minAreax = areax(t);
-                            var minAreay = areay(t);
-
-                            render(minAreax,minAreay);
-                        };
-                    })
-                    .transition()
-                    .duration(2500)
-                    .each("end", animation);
             }
+
+            // function animation() {
+            //     svg.transition()
+            //         .duration(7500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(50, 450);
+            //             var areay = d3.interpolateRound(300,300);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //
+            //                 render(minAreax,minAreay);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(3500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(450, 450);
+            //             var areay = d3.interpolateRound(300,300);
+            //             var angle = d3.interpolateRound(0,-90);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //                 var minAngle = angle(t);
+            //                 renderRotate(minAreax,minAreay,minAngle);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(3500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(450, 450);
+            //             var areay = d3.interpolateRound(300,100);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //                 render(minAreax,minAreay);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(3500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(450, 350);
+            //             var areay = d3.interpolateRound(100,100);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //
+            //                 render(minAreax,minAreay);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(3500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(350, 450);
+            //             var areay = d3.interpolateRound(100,100);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //
+            //                 render(minAreax,minAreay);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(3500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(450, 450);
+            //             var areay = d3.interpolateRound(100,300);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //
+            //                 render(minAreax,minAreay);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(7500)
+            //         .tween("precision", function() {
+            //             var areax = d3.interpolateRound(450, 50);
+            //             var areay = d3.interpolateRound(300,300);
+            //
+            //             return function(t) {
+            //                 var minAreax = areax(t);
+            //                 var minAreay = areay(t);
+            //
+            //                 render(minAreax,minAreay);
+            //             };
+            //         })
+            //         .transition()
+            //         .duration(2500)
+            //         .each("end", animation);
+            // }
 
             function render(minAreax,minAreay) {
                 var n = 0;

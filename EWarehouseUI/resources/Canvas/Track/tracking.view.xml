@@ -4,7 +4,7 @@
 	xmlns="sap.suite.ui.microchart"
 	xmlns:l="sap.ui.layout"
 	xmlns:m="sap.m"
-	controllerName="Track.tracking"
+	controllerName="Canvas.Track.tracking"
 	height="100%">
 	<m:Page id="tpage" showHeader="false" enableScrolling="false">
 	</m:Page>

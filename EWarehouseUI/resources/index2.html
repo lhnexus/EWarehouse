@@ -12,14 +12,14 @@
     <script src="//d3js.org/d3.v3.min.js"></script>
     <script>
         // data-sap-ui-resourceroots='{"openui5.googlemaps": "openui5/googlemaps"}'
-        sap.ui.localResources("Track");
+        sap.ui.localResources("Canvas");
         // sap.ui.getCore().loadLibrary("openui5.googlemaps", "openui5/googlemaps/");
-        var app = new sap.m.App({initialPage: "Track_Main"});
+        var app = new sap.m.App({initialPage: "Canvas_Main"});
         sap.ui.getCore().AppContext = new Object();
         sap.ui.getCore().AppContext.App = app;
         var page = sap.ui.view({
-            id: "Track_Main",
-            viewName: "Track.Main",
+            id: "Canvas_Main",
+            viewName: "Canvas.Main",
             type: sap.ui.core.mvc.ViewType.XML
         });
         app.addPage(page);
