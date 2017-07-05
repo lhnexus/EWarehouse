@@ -1,8 +1,8 @@
-sap.ui.define([ "sap/ui/model/odata/v2/ODataModel" ],
-	function(ODataModel, MockServer) {
+sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" ],
+	function(Controller, ODataModel) {
 	"use strict";
  
-	return sap.ui.controller("Track.tracking", {
+	return Controller.extend("Track.tracking", {
 		onInit: function() {
 			// this._initMockServer();
         },

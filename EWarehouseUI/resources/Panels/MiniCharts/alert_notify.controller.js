@@ -1,8 +1,8 @@
-sap.ui.define(['sap/m/MessageToast'],
-	function (MessageToast){
+sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast"],
+	function (Controller,MessageToast){
 	"use strict";
  
- 	return sap.ui.controller("Panels.MiniCharts.alert_notify", {
+ 	return Controller.extend("Panels.MiniCharts.alert_notify", {
 		onInit: function() {
 			
 			var oModel = new sap.ui.model.json.JSONModel();

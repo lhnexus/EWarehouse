@@ -1,8 +1,8 @@
-sap.ui.define([ "sap/ui/model/odata/v2/ODataModel", "sap/ui/core/util/MockServer" ],
-	function(ODataModel, MockServer) {
+sap.ui.define([ "sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel"],
+	function(Controller, ODataModel) {
 	"use strict";
  
-	return sap.ui.controller("Panels.MiniCharts.task_complete", {
+	return Controller.extend("Panels.MiniCharts.task_complete", {
 		onInit: function() {
 			// this._initMockServer();
  
