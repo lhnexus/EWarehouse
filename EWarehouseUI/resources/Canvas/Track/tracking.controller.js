@@ -26,8 +26,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 
             var rectwidth = parseInt(oMovingModel.getData().Cars[0].width);
             var rectheight = parseInt(oMovingModel.getData().Cars[0].height);
-            var rect = svg.append('rect').attr('x',oMovingModel.getData().Cars[0].Locations[0].x).attr('y',oMovingModel.getData().Cars[0].Locations[0].y).attr('width',rectwidth).attr('height',rectheight).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
-
+            var rect = svg.append('rect').attr('x',parseInt(oMovingModel.getData().Cars[0].Locations[0].x)-rectwidth/2).attr('y',parseInt(oMovingModel.getData().Cars[0].Locations[0].y)-rectheight/2).attr('width',rectwidth).attr('height',rectheight).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
+            var rect2 = svg.append('rect').attr('x','50').attr('y','50').attr('width',rectwidth).attr('height',rectheight).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
             //animation();
 
             moving();
@@ -69,8 +69,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                         .tween("rotate", function() {
                             var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')));
                             var areay = d3.interpolateRound(parseInt(rect.attr('y')),parseInt(rect.attr('y')));
+                            var centerx = parseInt(oMovingModel.getData().Cars[0].Locations[liter].x);
+                            var centery = parseInt(oMovingModel.getData().Cars[0].Locations[liter].y);
                             var angleL = d3.interpolateRound(0,90);
-                            var angleR = d3.interpolateRound(0,-90);
+                            var angleR = d3.interpolateRound(-0,-90);
                             return function(t) {
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
@@ -80,10 +82,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                                 if(isC=="true"){
                                     switch(direct) {
                                         case "L":
-                                            renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                                            //renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                                            renderRotate(minAreax,minAreay,minAngleR,centerx,centery,rect);
                                             break;
                                         case "R":
-                                            renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                                            // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                                            renderRotate(minAreax,minAreay,minAngleL,centerx,centery,rect);
                                             break;
                                         default:
                                             break;
@@ -92,9 +96,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 
                                     switch(direct) {
                                         case "L":
-                                            renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                            // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                            renderRotate(minAreax,minAreay,minAngleL,centerx,centery,rect);
                                         case "R":
-                                            renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                            // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                            renderRotate(minAreax,minAreay,minAngleR,centerx,centery,rect);
                                             break;
                                         default:
                                             break;
@@ -112,102 +118,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 
             }
 
-            // function animation() {
-            //     svg.transition()
-            //         .duration(7500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(50, 450);
-            //             var areay = d3.interpolateRound(300,300);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //
-            //                 render(minAreax,minAreay);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(3500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(450, 450);
-            //             var areay = d3.interpolateRound(300,300);
-            //             var angle = d3.interpolateRound(0,-90);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //                 var minAngle = angle(t);
-            //                 renderRotate(minAreax,minAreay,minAngle);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(3500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(450, 450);
-            //             var areay = d3.interpolateRound(300,100);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //                 render(minAreax,minAreay);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(3500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(450, 350);
-            //             var areay = d3.interpolateRound(100,100);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //
-            //                 render(minAreax,minAreay);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(3500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(350, 450);
-            //             var areay = d3.interpolateRound(100,100);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //
-            //                 render(minAreax,minAreay);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(3500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(450, 450);
-            //             var areay = d3.interpolateRound(100,300);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //
-            //                 render(minAreax,minAreay);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(7500)
-            //         .tween("precision", function() {
-            //             var areax = d3.interpolateRound(450, 50);
-            //             var areay = d3.interpolateRound(300,300);
-            //
-            //             return function(t) {
-            //                 var minAreax = areax(t);
-            //                 var minAreay = areay(t);
-            //
-            //                 render(minAreax,minAreay);
-            //             };
-            //         })
-            //         .transition()
-            //         .duration(2500)
-            //         .each("end", animation);
-            // }
+
 
             function render(minAreax,minAreay,rect) {
                 rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)');
@@ -221,236 +132,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                 //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
 
                 //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
-                 rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+                 rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
                 //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
             }
 
 
         }
 
-        // animation: function(svg,rect,that) {
-        //
-        //     svg.transition()
-        //         .duration(7500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(50, 450);
-        //             var areay = d3.interpolateRound(300,300);
-        //             //var color = d3.interpolateRgb('rgb(255,0,255)', 'rgb(0,255,0)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 450);
-        //             var areay = d3.interpolateRound(300,300);
-        //             var angle = d3.interpolateRound(0,-90);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t);
-        //                 var minAngle = angle(t);
-        //                 that.renderRotate(minAreax,minAreay,minAngle,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 450);
-        //             var areay = d3.interpolateRound(300,100);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 350);
-        //             var areay = d3.interpolateRound(100,100);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(350, 450);
-        //             var areay = d3.interpolateRound(100,100);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 450);
-        //             var areay = d3.interpolateRound(100,300);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(7500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 50);
-        //             var areay = d3.interpolateRound(300,300);
-        //             //var color = d3.interpolateRgb('rgb(255,0,255)', 'rgb(0,255,0)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(2500)
-        //         .each("end", that.nextanimation(svg,rect,that));
-        // },
-        //
-        //
-        // nextanimation: function(svg,rect,that) {
-        //     svg.transition()
-        //         .duration(7500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(50, 450);
-        //             var areay = d3.interpolateRound(300,300);
-        //             //var color = d3.interpolateRgb('rgb(255,0,255)', 'rgb(0,255,0)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 450);
-        //             var areay = d3.interpolateRound(300,300);
-        //             var angle = d3.interpolateRound(0,-90);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t);
-        //                 var minAngle = angle(t);
-        //                 that.renderRotate(minAreax,minAreay,minAngle,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 450);
-        //             var areay = d3.interpolateRound(300,100);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 350);
-        //             var areay = d3.interpolateRound(100,100);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(350, 450);
-        //             var areay = d3.interpolateRound(100,100);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(3500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 450);
-        //             var areay = d3.interpolateRound(100,300);
-        //             //var color = d3.interpolateRgb('rgb(0,255,0)', 'rgb(255,0,255)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(7500)
-        //         .tween("precision", function() {
-        //             var areax = d3.interpolateRound(450, 50);
-        //             var areay = d3.interpolateRound(300,300);
-        //             //var color = d3.interpolateRgb('rgb(255,0,255)', 'rgb(0,255,0)');
-        //             return function(t) {
-        //                 var minAreax = areax(t);
-        //                 var minAreay = areay(t);
-        //                 //var curColor = color(t)
-        //
-        //                 that.render(minAreax,minAreay,rect);
-        //             };
-        //         })
-        //         .transition()
-        //         .duration(2500)
-        //         .each("end", that.animation(svg,rect,that));
-        // },
-        //
-        // render: function(minAreax,minAreay,rect) {
-        //     var n = 0;
-        //
-        //     //var color = 'rgb(' + curColor.r + ',' + curColor.g + ',' + curColor.b + ')';
-        //     rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)');
-        //
-        //     //console.log(color)
-        //
-        //     //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
-   		//  },
-        // renderRotate: function(minAreax,minAreay,minAngle,rect) {
-        //     var n = 0;
-        //
-        //     //var color = 'rgb(' + curColor.r + ',' + curColor.g + ',' + curColor.b + ')';
-        //     rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
-        //
-        //     //console.log(color)
-        //
-        //     //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
-        // }
-        //
+
 
 
 	
