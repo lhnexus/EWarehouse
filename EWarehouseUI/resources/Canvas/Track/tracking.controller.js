@@ -67,12 +67,38 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                         }).transition()
                         .duration(2000)
                         .tween("rotate", function() {
-                            var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')));
-                            var areay = d3.interpolateRound(parseInt(rect.attr('y')),parseInt(rect.attr('y')));
+                            var x = parseInt(rect.attr('x'));
+                            var y = parseInt(rect.attr('y'));
+
+                            var cx = parseInt(oMovingModel.getData().Cars[0].Locations[liter-1].x);
+                            var cy = parseInt(oMovingModel.getData().Cars[0].Locations[liter-1].y);
+                            var nx = x;
+                            var ny = y;
+
+                            if(rect.attr('transform') ==null){
+
+                            }else{
+                                var angle = (-parseInt(rect.attr('transform').substring(7,10)));
+                                var radians = (Math.PI / 180) * angle;
+                                var cos = Math.cos(radians);
+                                var sin = Math.sin(radians);
+                                nx = (cos * (x - cx)) + (sin * (y - cy)) + cx;
+                                ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
+
+                            }
+
+
+
                             var centerx = parseInt(oMovingModel.getData().Cars[0].Locations[liter].x);
                             var centery = parseInt(oMovingModel.getData().Cars[0].Locations[liter].y);
-                            var angleL = d3.interpolateRound(0,90);
-                            var angleR = d3.interpolateRound(-0,-90);
+                            var areax = d3.interpolateRound(nx,nx);
+                            var areay = d3.interpolateRound(ny,ny);
+                            var angleL = d3.interpolateRound(0,-90);
+                            var angleR = d3.interpolateRound(0,90);
+
+
+
+
                             return function(t) {
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
@@ -98,6 +124,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                                         case "L":
                                             // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
                                             renderRotate(minAreax,minAreay,minAngleL,centerx,centery,rect);
+                                            break;
                                         case "R":
                                             // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
                                             renderRotate(minAreax,minAreay,minAngleR,centerx,centery,rect);
@@ -129,10 +156,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 
             function renderRotate(minAreax,minAreay,minAngle,centerx,centery,rect) {
 
-                //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+                rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
 
                 //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
-                 rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+                // rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
                 //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
             }
 
