@@ -26,7 +26,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 
             var rectwidth = parseInt(oMovingModel.getData().Cars[0].width);
             var rectheight = parseInt(oMovingModel.getData().Cars[0].height);
+            var imx = parseInt(oMovingModel.getData().Cars[0].Locations[0].x)-rectwidth/2;
+            var imy = parseInt(oMovingModel.getData().Cars[0].Locations[0].y)-rectheight/2;
             var rect = svg.append('rect').attr('x',parseInt(oMovingModel.getData().Cars[0].Locations[0].x)-rectwidth/2).attr('y',parseInt(oMovingModel.getData().Cars[0].Locations[0].y)-rectheight/2).attr('width',rectwidth).attr('height',rectheight).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
+            //var rect = svg.append('rect').attr('x',0).attr('y',0).attr('width',rectwidth).attr('height',rectheight).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
+            //rect.style('fill','rgb(84,153,199)').attr('transform','translate('+imx+','+imy+')');
+
             var rect2 = svg.append('rect').attr('x','50').attr('y','50').attr('width',rectwidth).attr('height',rectheight).style('fill','rgb(255,0,255)').style('stroke','rgb(209,242,235)').style('stroke-width','5');
             //animation();
 
@@ -42,21 +47,34 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                     var dist = 0;
                     var direct = oMovingModel.getData().Cars[0].Locations[liter].NS;
                     var isC = oMovingModel.getData().Cars[0].Locations[liter].NC;
+                    var isCP = oMovingModel.getData().Cars[0].Locations[liter-1].NC;
+
                     if(distx == 0){
                         dura = Math.floor(disty/speed);
                         dist = disty;
+
                     }
                     if(disty == 0){
                         dura = Math.floor(distx/speed);
                         dist = distx;
+
                     }
 
                     //moving animation
                     svg.transition()
                         .duration(dura)
                         .tween("precision", function() {
-                            var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x'))+dist);
-                            var areay = d3.interpolateRound(parseInt(rect.attr('y')),parseInt(rect.attr('y')));
+                            if(isCP=="true"){
+                                var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x'))-dist);
+                                var areay = d3.interpolateRound(parseInt(rect.attr('y')),parseInt(rect.attr('y')));
+                            }else{
+                                var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x'))+dist);
+                                var areay = d3.interpolateRound(parseInt(rect.attr('y')),parseInt(rect.attr('y')));
+                            }
+
+
+                            // var areax = d3.interpolateRound(0,distx);
+                            // var areay = d3.interpolateRound(0,disty);disty
                             return function(t) {
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
@@ -67,12 +85,51 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                         }).transition()
                         .duration(2000)
                         .tween("rotate", function() {
-                            var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')));
-                            var areay = d3.interpolateRound(parseInt(rect.attr('y')),parseInt(rect.attr('y')));
-                            var centerx = parseInt(oMovingModel.getData().Cars[0].Locations[liter].x);
-                            var centery = parseInt(oMovingModel.getData().Cars[0].Locations[liter].y);
-                            var angleL = d3.interpolateRound(0,90);
-                            var angleR = d3.interpolateRound(-0,-90);
+
+                            var x = parseInt(rect.attr('x'));
+                            var y = parseInt(rect.attr('y'));
+                            var nx = x;
+                            var ny = y;
+
+                            // var centerx = parseInt(rect.attr('x'))+parseInt(rect.attr('width'))/2;
+                            // var centery = parseInt(rect.attr('y'))+parseInt(rect.attr('height'))/2;
+                            //var cx = parseInt(rect.attr('x'))+parseInt(rect.attr('width'))/2;
+                            //var cy = parseInt(rect.attr('y'))+parseInt(rect.attr('height'))/2;
+                            // var centerx = parseInt(oMovingModel.getData().Cars[0].Locations[liter-1].x);
+                            // var centery = parseInt(oMovingModel.getData().Cars[0].Locations[liter-1].y);
+                            var ix = 0;
+                            var iy = 0;
+                            var cx = parseInt(oMovingModel.getData().Cars[0].Locations[liter].x);
+                            var cy = parseInt(oMovingModel.getData().Cars[0].Locations[liter].y);
+
+                            if(rect.attr('transform') == null){
+                                ix = parseInt(oMovingModel.getData().Cars[0].Locations[liter].x)-parseInt(rect.attr('width'))/2;
+                                iy = parseInt(oMovingModel.getData().Cars[0].Locations[liter].y)-parseInt(rect.attr('height'))/2;
+
+                            }else{
+
+                                // var ia = parseInt(rect.attr('transform').substring(7,10));
+                                    ix = parseInt(oMovingModel.getData().Cars[0].Locations[liter].x)-parseInt(rect.attr('width'))/2;
+                                    iy = parseInt(oMovingModel.getData().Cars[0].Locations[liter].y)-parseInt(rect.attr('height'))/2;
+
+
+                            }
+
+
+                            var areax = d3.interpolateRound(ix,ix);
+                            var areay = d3.interpolateRound(iy,iy);
+                            var iangle = 0;
+
+                            if(rect.attr('transform')==null){
+
+
+                            }else{
+                                iangle = parseInt(rect.attr('transform').substring(7,10));
+                            }
+                            var angleL = d3.interpolateRound(iangle,iangle-90);
+                            var angleR = d3.interpolateRound(iangle,iangle+90);
+
+
                             return function(t) {
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
@@ -83,11 +140,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                                     switch(direct) {
                                         case "L":
                                             //renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
-                                            renderRotate(minAreax,minAreay,minAngleR,centerx,centery,rect);
+                                            renderRotate(minAreax,minAreay,minAngleR,cx,cy,rect);
                                             break;
                                         case "R":
                                             // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
-                                            renderRotate(minAreax,minAreay,minAngleL,centerx,centery,rect);
+                                            renderRotate(minAreax,minAreay,minAngleL,cx,cy,rect);
                                             break;
                                         default:
                                             break;
@@ -97,10 +154,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
                                     switch(direct) {
                                         case "L":
                                             // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
-                                            renderRotate(minAreax,minAreay,minAngleL,centerx,centery,rect);
+                                            renderRotate(minAreax,minAreay,minAngleL,cx,cy,rect);
+                                            break;
                                         case "R":
                                             // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
-                                            renderRotate(minAreax,minAreay,minAngleR,centerx,centery,rect);
+                                            renderRotate(minAreax,minAreay,minAngleR,cx,cy,rect);
                                             break;
                                         default:
                                             break;
@@ -122,17 +180,18 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel" 
 
             function render(minAreax,minAreay,rect) {
                 rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)');
-                //rect.style('fill','rgb(84,153,199)').attr('transform','translateX('+distx+')');
+                //rect.style('fill','rgb(84,153,199)').attr('transform','translate('+distx+','+disty+')');
 
                 //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
             }
 
             function renderRotate(minAreax,minAreay,minAngle,centerx,centery,rect) {
 
-                //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+                rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
 
                 //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
-                 rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+                //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+                //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
                 //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
             }
 
