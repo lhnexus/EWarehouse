@@ -32,7 +32,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel",
 
                 //factory counter initial
                 initCounter(svg, oMovingModel);
-
+                initAreas(svg, oMovingModel);
 
                 //Car moving initial
                 var carnums = oMovingModel.getData().Cars.length;

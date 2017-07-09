@@ -7,6 +7,9 @@
     "Charging": {
       "width": "100",
       "height": "240",
+      "stroke": "rgb(209,242,235)",
+      "stroke_width": "4",
+      "text": "Charging Area",
       "x": "50",
       "y": "50"
 
@@ -14,12 +17,18 @@
     "Inbound": {
       "width": "180",
       "height": "60",
+      "stroke": "rgb(209,242,235)",
+      "stroke_width": "4",
+      "text": "Inbound Area",
       "x": "180",
       "y": "780"
     },
     "Outbound": {
       "width": "180",
       "height": "60",
+      "stroke": "rgb(209,242,235)",
+      "stroke_width": "4",
+      "text": "Outbound Area",
       "x": "760",
       "y": "780"
     }
@@ -126,7 +135,7 @@
       "x": "100",
       "y": "550",
       "wtime": "0",
-      "NS": "N",
+      "NS": "S",
       "NC": "false"
     },{
       "x": "500",
@@ -162,7 +171,7 @@
       "x": "100",
       "y": "550",
       "wtime": "0",
-      "NS": "N",
+      "NS": "E",
       "NC": "false"
     }
     ]

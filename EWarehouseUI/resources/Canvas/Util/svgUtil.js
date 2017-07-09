@@ -19,18 +19,34 @@ function initCounter(svg, oMovingModel) {
 }
 
 function initAreas(svg, oMovingModel) {
-    var nums = parseInt(oMovingModel.getData().Areas.Locations.length);
-    var cwidth = parseInt(oMovingModel.getData().Counters.width);
-    var cheight = parseInt(oMovingModel.getData().Counters.height);
-    for (var i = 0; i < nums; i++) {
-        svg.append('rect').attr('x', oMovingModel.getData().Counters.Locations[i].x)
-            .attr('y', oMovingModel.getData().Counters.Locations[i].y)
-            .attr('width', cwidth).attr('height', cheight)
-            .style('fill', 'none')
-            .style('stroke', oMovingModel.getData().Counters.stroke)
-            .style('stroke-width', oMovingModel.getData().Counters.stroke_width)
-            .style('stroke-dasharray', oMovingModel.getData().Counters.stroke_dasharray);
-    }
+    var gcharging = svg.append('g');
+    gcharging.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Charging.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Charging.y)+15).attr('font-size','13').text('Charging Area');
+    gcharging.append('rect').attr('x', oMovingModel.getData().Areas.Charging.x)
+        .attr('y', oMovingModel.getData().Areas.Charging.y)
+        .attr('width', oMovingModel.getData().Areas.Charging.width)
+        .attr('height', oMovingModel.getData().Areas.Charging.height)
+        .style('fill', 'none')
+        .style('stroke', oMovingModel.getData().Areas.Charging.stroke)
+        .style('stroke-width', oMovingModel.getData().Areas.Charging.stroke_width);
+    var ginbound = svg.append('g');
+    ginbound.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Inbound.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+15).attr('font-size','13').text('Inbound Area');
+    ginbound.append('g').append('rect').attr('x', oMovingModel.getData().Areas.Inbound.x)
+        .attr('y', oMovingModel.getData().Areas.Inbound.y)
+        .attr('width', oMovingModel.getData().Areas.Inbound.width)
+        .attr('height', oMovingModel.getData().Areas.Inbound.height)
+        .style('fill', 'none')
+        .style('stroke', oMovingModel.getData().Areas.Inbound.stroke)
+        .style('stroke-width', oMovingModel.getData().Areas.Inbound.stroke_width);
+
+    var goutbound = svg.append('g');
+    goutbound.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Outbound.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Outbound.y)+15).attr('font-size','13').text('Outbound Area');
+    goutbound.append('g').append('rect').attr('x', oMovingModel.getData().Areas.Outbound.x)
+        .attr('y', oMovingModel.getData().Areas.Outbound.y)
+        .attr('width', oMovingModel.getData().Areas.Outbound.width)
+        .attr('height', oMovingModel.getData().Areas.Outbound.height)
+        .style('fill', 'none')
+        .style('stroke', oMovingModel.getData().Areas.Outbound.stroke)
+        .style('stroke-width', oMovingModel.getData().Areas.Outbound.stroke_width);
 
 
 }
@@ -48,7 +64,12 @@ function initCars(svg, oMovingModel,carnum) {
     var rectheight = parseInt(this.oMovingModel.getData().Cars[this.carnum].height);
 
 
-    this.rect = this.svg.append('rect').attr('x', parseInt(this.oMovingModel.getData().Cars[this.carnum].Locations[0].x) - rectwidth / 2).attr('y', parseInt(this.oMovingModel.getData().Cars[this.carnum].Locations[0].y) - rectheight / 2).attr('width', rectwidth).attr('height', rectheight).style('fill', 'rgb(255,0,255)').style('stroke', 'rgb(209,242,235)').style('stroke-width', '5');
+    this.rect = this.svg.append('rect').attr('x', parseInt(this.oMovingModel.getData().Cars[this.carnum].Locations[0].x) - rectwidth / 2)
+        .attr('y', parseInt(this.oMovingModel.getData().Cars[this.carnum].Locations[0].y) - rectheight / 2)
+        .attr('width', rectwidth).attr('height', rectheight)
+        .style('fill', 'rgb(84,153,199)')
+        .style('stroke', 'rgb(209,242,235)')
+        .style('stroke-width', '5');
 
     moving();
 
@@ -177,6 +198,11 @@ function moving() {
                                 // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
                                 renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
                                 break;
+                            case "N":
+                                // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                //renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
+                                releaseCargo(minAreax,minAreay,rect);
+                                break;
                             default:
                                 break;
                         }
@@ -193,7 +219,7 @@ function moving() {
 }
 
 function render(minAreax, minAreay, rect) {
-    rect.attr('x', minAreax).attr('y', minAreay).style('fill', 'rgb(84,153,199)');
+    rect.attr('x', minAreax).attr('y', minAreay);
     //rect.style('fill','rgb(84,153,199)').attr('transform','translate('+distx+','+disty+')');
 
     //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
@@ -201,7 +227,17 @@ function render(minAreax, minAreay, rect) {
 
 function renderRotate(minAreax, minAreay, minAngle, centerx, centery, rect) {
 
-    rect.attr('x', minAreax).attr('y', minAreay).style('fill', 'rgb(84,153,199)').attr('transform', 'rotate(' + minAngle + ',' + centerx + ',' + centery + ')');
+    rect.attr('x', minAreax).attr('y', minAreay).attr('transform', 'rotate(' + minAngle + ',' + centerx + ',' + centery + ')');
+
+    //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
+    //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+    //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
+    //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
+}
+
+function releaseCargo(minAreax, minAreay, rect) {
+
+    rect.attr('x', minAreax).attr('y', minAreay).style('fill', 'none');
 
     //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
     //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
