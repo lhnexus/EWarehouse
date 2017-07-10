@@ -5,12 +5,19 @@ function initCounter(svg, oMovingModel) {
     var nums = parseInt(oMovingModel.getData().Counters.Locations.length);
     var cwidth = parseInt(oMovingModel.getData().Counters.width);
     var cheight = parseInt(oMovingModel.getData().Counters.height);
+
     for (var i = 0; i < nums; i++) {
+
+        var ifill =  oMovingModel.getData().Counters.Locations[i].fill;
+        var fill = "none";
+        if(ifill == "true")
+            fill = oMovingModel.getData().Cargo.content;
+
         svg.append('rect').attr('x', oMovingModel.getData().Counters.Locations[i].x)
             .attr('y', oMovingModel.getData().Counters.Locations[i].y)
             .attr('width', cwidth).attr('height', cheight)
             .attr('id', oMovingModel.getData().Counters.Locations[i].id)
-            .style('fill', 'none')
+            .style('fill', fill)
             .style('stroke', oMovingModel.getData().Counters.stroke)
             .style('stroke-width', oMovingModel.getData().Counters.stroke_width)
             .style('stroke-dasharray', oMovingModel.getData().Counters.stroke_dasharray);
@@ -29,220 +36,281 @@ function initAreas(svg, oMovingModel) {
         .style('fill', 'none')
         .style('stroke', oMovingModel.getData().Areas.Charging.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Charging.stroke_width);
-    var ginbound = svg.append('g');
-    ginbound.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Inbound.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+15).attr('font-size','13').text('Inbound Area');
-    ginbound.append('g').append('rect').attr('x', oMovingModel.getData().Areas.Inbound.x)
+
+    var ginbound = svg.append('rect').attr('x', oMovingModel.getData().Areas.Inbound.x)
         .attr('y', oMovingModel.getData().Areas.Inbound.y)
         .attr('width', oMovingModel.getData().Areas.Inbound.width)
         .attr('height', oMovingModel.getData().Areas.Inbound.height)
         .style('fill', 'none')
         .style('stroke', oMovingModel.getData().Areas.Inbound.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Inbound.stroke_width);
+    var gtextin = svg.append('g');
+    gtextin.append('rect').attr('x', parseInt(oMovingModel.getData().Areas.Inbound.x)+parseInt(oMovingModel.getData().Areas.Inbound.width))
+        .attr('y', oMovingModel.getData().Areas.Inbound.y)
+        .attr('width', parseInt(oMovingModel.getData().Areas.Inbound.width)/2)
+        .attr('height', oMovingModel.getData().Areas.Inbound.height)
+        .style('fill', 'none')
+        .style('stroke', oMovingModel.getData().Areas.Inbound.stroke)
+        .style('stroke-width', oMovingModel.getData().Areas.Inbound.stroke_width);
+    gtextin.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Inbound.x)+parseInt(oMovingModel.getData().Areas.Inbound.width)+15)
+        .attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+40)
+        .attr('font-size','18').text('Inbound');
+    gtextin.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Inbound.x)+parseInt(oMovingModel.getData().Areas.Inbound.width)+30)
+        .attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+60)
+        .attr('font-size','18').text('Area');
 
-    var goutbound = svg.append('g');
-    goutbound.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Outbound.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Outbound.y)+15).attr('font-size','13').text('Outbound Area');
-    goutbound.append('g').append('rect').attr('x', oMovingModel.getData().Areas.Outbound.x)
+    var goutbound = svg.append('rect').attr('x', oMovingModel.getData().Areas.Outbound.x)
         .attr('y', oMovingModel.getData().Areas.Outbound.y)
         .attr('width', oMovingModel.getData().Areas.Outbound.width)
         .attr('height', oMovingModel.getData().Areas.Outbound.height)
         .style('fill', 'none')
         .style('stroke', oMovingModel.getData().Areas.Outbound.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Outbound.stroke_width);
+    var gtextout = svg.append('g');
+    gtextout.append('rect').attr('x', parseInt(oMovingModel.getData().Areas.Outbound.x)+parseInt(oMovingModel.getData().Areas.Outbound.width))
+        .attr('y', oMovingModel.getData().Areas.Outbound.y)
+        .attr('width', parseInt(oMovingModel.getData().Areas.Outbound.width)/2)
+        .attr('height', oMovingModel.getData().Areas.Outbound.height)
+        .style('fill', 'none')
+        .style('stroke', oMovingModel.getData().Areas.Outbound.stroke)
+        .style('stroke-width', oMovingModel.getData().Areas.Outbound.stroke_width);
+    gtextout.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Outbound.x)+parseInt(oMovingModel.getData().Areas.Outbound.width)+6)
+        .attr('y',parseInt(oMovingModel.getData().Areas.Outbound.y)+40)
+        .attr('font-size','18').text('Outbound');
+    gtextout.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Outbound.x)+parseInt(oMovingModel.getData().Areas.Outbound.width)+28)
+        .attr('y',parseInt(oMovingModel.getData().Areas.Outbound.y)+60)
+        .attr('font-size','18').text('Area');
 
 
 }
 
 function initCars(svg, oMovingModel,carnum) {
-    this.liter = 0;
-    this.svg = svg;
-    this.oMovingModel = oMovingModel;
+    var carid = oMovingModel.getData().Cars[carnum].id;
+    var rectwidth = parseInt(oMovingModel.getData().Cars[carnum].width);
+    var rectheight = parseInt(oMovingModel.getData().Cars[carnum].height);
 
-    this.carnum = carnum;
-    this.length = this.oMovingModel.getData().Cars[this.carnum].Locations.length;
-
-
-    var rectwidth = parseInt(this.oMovingModel.getData().Cars[this.carnum].width);
-    var rectheight = parseInt(this.oMovingModel.getData().Cars[this.carnum].height);
-
-
-    this.rect = this.svg.append('rect').attr('x', parseInt(this.oMovingModel.getData().Cars[this.carnum].Locations[0].x) - rectwidth / 2)
-        .attr('y', parseInt(this.oMovingModel.getData().Cars[this.carnum].Locations[0].y) - rectheight / 2)
+    var ifill =  oMovingModel.getData().Cars[carnum].fill;
+    var fill = "none";
+    if(ifill == "true")
+        fill = oMovingModel.getData().Cargo.content;
+     svg.append('rect').attr('x', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].x) - rectwidth / 2)
+        .attr('y', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].y) - rectheight / 2)
         .attr('width', rectwidth).attr('height', rectheight)
-        .style('fill', 'rgb(84,153,199)')
+        .attr('id',carid)
+        .style('fill', fill)
         .style('stroke', 'rgb(209,242,235)')
         .style('stroke-width', '5');
 
-    moving();
-
 }
 
-
-function moving() {
-    liter = liter + 1;
-    if (liter < length) {
-        console.log("inloop: " + liter);
-        //calculate moving duration based on the same speed
-        var speed = parseFloat(oMovingModel.getData().Cars[carnum].Speed);
-        var dura = 0;
-        var distx = Math.abs(parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(oMovingModel.getData().Cars[carnum].Locations[liter - 1].x));
-        var disty = Math.abs(parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(oMovingModel.getData().Cars[carnum].Locations[liter - 1].y));
-        var dist = 0;
-        var direct = oMovingModel.getData().Cars[carnum].Locations[liter].NS;
-        var isC = oMovingModel.getData().Cars[carnum].Locations[liter].NC;
-        var isCP = oMovingModel.getData().Cars[carnum].Locations[liter - 1].NC;
-
-        if (distx == 0) {
-            dura = Math.floor(disty / speed);
-            dist = disty;
-
-        }
-        if (disty == 0) {
-            dura = Math.floor(distx / speed);
-            dist = distx;
-
-        }
-
-        //moving animation
-        svg.transition()
-            .duration(dura)
-            .tween("precision", function () {
-
-                if (isCP == "true") {
-                    var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) - dist);
-                    var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
-                    // var cid = retrieveCounterID(areax,areay);
-                    // d3.select("#"+cid).attr('fill','rgb(84,153,199)');
-                } else {
-                    var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) + dist);
-                    var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
-                }
+function moving(oMovingModel,carnum,rect){
+    var liter = 0;
+    // this.oMovingModel = oMovingModel;
+    // this.carnum = carnum;
+    var length = oMovingModel.getData().Cars[carnum].Locations.length;
+    // this.rect = rect;
+    repeating();
 
 
-                // var areax = d3.interpolateRound(0,distx);
-                // var areay = d3.interpolateRound(0,disty);disty
-                return function (t) {
+    function repeating() {
+        liter = liter + 1;
+        if (liter < length) {
 
+            //calculate moving duration based on the same speed
+            var speed = parseFloat(oMovingModel.getData().Cars[carnum].Speed);
+            var dura = 0;
+            var duarangle = Math.floor(90/speed);
+            var distx = Math.abs(parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(oMovingModel.getData().Cars[carnum].Locations[liter - 1].x));
+            var disty = Math.abs(parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(oMovingModel.getData().Cars[carnum].Locations[liter - 1].y));
+            var dist = 0;
+            var direct = oMovingModel.getData().Cars[carnum].Locations[liter].NS;
+            var isC = oMovingModel.getData().Cars[carnum].Locations[liter].NC;
+            var isCP = oMovingModel.getData().Cars[carnum].Locations[liter - 1].NC;
 
-                    var minAreax = areax(t);
-                    var minAreay = areay(t);
-                    render(minAreax, minAreay, rect);
-                    //decide moving or rotation
-                    // render(minAreax,minAreay);
-                };
-            })
-            .transition()
-            .duration(2000)
-            .tween("rotate", function () {
-                var x = parseInt(rect.attr('x'));
-                var y = parseInt(rect.attr('y'));
-                var nx = x;
-                var ny = y;
+            if (distx == 0) {
+                dura = Math.floor(disty / speed);
+                dist = disty;
 
-                var ix = 0;
-                var iy = 0;
-                var cx = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x);
-                var cy = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y);
+            }
+            if (disty == 0) {
+                dura = Math.floor(distx / speed);
+                dist = distx;
 
-                if (rect.attr('transform') == null) {
-                    ix = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(rect.attr('width')) / 2;
-                    iy = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(rect.attr('height')) / 2;
+            }
 
-                } else {
+            //moving animation
+            rect.transition(this.carid+"move"+liter)
+                .duration(dura)
+                .tween(this.carid+"precision"+liter, function () {0
 
-                    // var ia = parseInt(rect.attr('transform').substring(7,10));
-                    ix = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(rect.attr('width')) / 2;
-                    iy = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(rect.attr('height')) / 2;
-
-
-                }
-
-
-                var areax = d3.interpolateRound(ix, ix);
-                var areay = d3.interpolateRound(iy, iy);
-                var iangle = 0;
-
-                if (rect.attr('transform') == null) {
-
-
-                } else {
-                    iangle = parseInt(rect.attr('transform').substring(7, 10));
-                }
-                var angleL = d3.interpolateRound(iangle, iangle - 90);
-                var angleR = d3.interpolateRound(iangle, iangle + 90);
-
-
-
-                return function (t) {
-                    var minAreax = areax(t);
-                    var minAreay = areay(t);
-                    var minAngleL = angleL(t);
-                    var minAngleR = angleR(t);
-                    //check next point is counter or not
-                    if (isC == "true") {
-                        switch (direct) {
-                            case "L":
-                                //renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
-                                renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
-                                break;
-                            case "R":
-                                // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
-                                renderRotate(minAreax, minAreay, minAngleL, cx, cy, rect);
-                                break;
-                            default:
-                                break;
-                        }
+                    if (isCP == "true") {
+                        var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) - dist);
+                        var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
                     } else {
-
-                        switch (direct) {
-                            case "L":
-                                // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
-                                renderRotate(minAreax, minAreay, minAngleL, cx, cy, rect);
-                                break;
-                            case "R":
-                                // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
-                                renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
-                                break;
-                            case "N":
-                                // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
-                                //renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
-                                releaseCargo(minAreax,minAreay,rect);
-                                break;
-                            default:
-                                break;
-                        }
+                        var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) + dist);
+                        var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
                     }
 
 
-                };
-            })
-            .transition()
-            .duration(1)
-            .each("end", moving);
+                    // var areax = d3.interpolateRound(0,distx);
+                    // var areay = d3.interpolateRound(0,disty);disty
+                    return function (t) {
 
+
+                        var minAreax = areax(t);
+                        var minAreay = areay(t);
+                        render(minAreax, minAreay, rect);
+                        //decide moving or rotation
+                        // render(minAreax,minAreay);
+                    };
+                })
+                .transition(this.carid+"rotate"+liter)
+                .duration(duarangle)
+                .tween(this.carid+"rotate"+liter, function () {
+                    var x = parseInt(rect.attr('x'));
+                    var y = parseInt(rect.attr('y'));
+                    var nx = x;
+                    var ny = y;
+
+                    var ix = 0;
+                    var iy = 0;
+                    var cx = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x);
+                    var cy = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y);
+
+                    if (rect.attr('transform') == null) {
+                        ix = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(rect.attr('width')) / 2;
+                        iy = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(rect.attr('height')) / 2;
+
+                    } else {
+
+                        // var ia = parseInt(rect.attr('transform').substring(7,10));
+                        ix = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(rect.attr('width')) / 2;
+                        iy = parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(rect.attr('height')) / 2;
+
+
+                    }
+
+
+                    var areax = d3.interpolateRound(ix, ix);
+                    var areay = d3.interpolateRound(iy, iy);
+                    var iangle = 0;
+
+                    if (rect.attr('transform') == null) {
+
+
+                    } else {
+                        //iangle = parseInt(rect.attr('transform').substring(7, 10));
+                        iangle = parseInt(rect.attr('transform').split("(")[1].split(",")[0]);
+                    }
+                    var angleL;
+                    var angleR;
+                    var angleE;
+                    if(dist>0){
+                        angleL = d3.interpolateRound(iangle, iangle - 90);
+                        angleR = d3.interpolateRound(iangle, iangle + 90);
+                    }else{
+                        angleL = d3.interpolateRound(iangle, iangle - 90);
+                        angleR = d3.interpolateRound(iangle, iangle + 90);
+                    }
+                    angleE = d3.interpolateRound(iangle, 0);
+
+
+                    var counterid = retrieveCounterID(ix,iy);
+                    var cstatus;
+                    var content = oMovingModel.getData().Cargo.content;
+                    if(counterid != "")
+                        cstatus= d3.select("#"+counterid).style('fill');
+
+                    if(direct == "N") {
+                        if (rect.style('fill') == "none")
+                            releaseCargo(ix, iy, rect, content);
+                        else
+                            releaseCargo(ix, iy, rect, "none");
+                    }
+
+                    return function (t) {
+                        var minAreax = areax(t);
+                        var minAreay = areay(t);
+                        var minAngleL = angleL(t);
+                        var minAngleR = angleR(t);
+                        var minAngleE = angleE(t);
+                        //check next point is counter or not
+                        if (isC == "true") {
+                            switch (direct) {
+                                case "L":
+                                    //renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                                    renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
+                                    break;
+                                case "R":
+                                    // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                                    renderRotate(minAreax, minAreay, minAngleL, cx, cy, rect);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } else {
+
+                            switch (direct) {
+                                case "L":
+                                    // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                    renderRotate(minAreax, minAreay, minAngleL, cx, cy, rect);
+                                    break;
+                                case "R":
+                                    // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                    renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
+                                    break;
+                                case "N":
+                                    // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
+                                    //renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
+                                    if(cstatus == "none")
+                                        fillCounter(counterid,content);
+                                    else
+                                        fillCounter(counterid,"none");
+                                    break;
+                                case "E":
+                                    renderRotate(minAreax, minAreay, minAngleE, cx, cy, rect);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+
+                    };
+                })
+                .transition(this.carid+"repeat"+liter)
+                .duration(1)
+                .each("end", repeating);
+
+        }
     }
+
+    function render(minAreax, minAreay, rect) {
+        rect.attr('x', minAreax).attr('y', minAreay);
+        //rect.style('fill','rgb(84,153,199)').attr('transform','translate('+distx+','+disty+')');
+
+        //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
+    }
+
+    function renderRotate(minAreax, minAreay, minAngle, centerx, centery, rect) {
+
+        rect.attr('x', minAreax).attr('y', minAreay).attr('transform', 'rotate(' + minAngle + ',' + centerx + ',' + centery + ')');
+
+        //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
+        //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
+        //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
+        //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
+    }
+
 }
 
-function render(minAreax, minAreay, rect) {
-    rect.attr('x', minAreax).attr('y', minAreay);
-    //rect.style('fill','rgb(84,153,199)').attr('transform','translate('+distx+','+disty+')');
 
-    //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
-}
 
-function renderRotate(minAreax, minAreay, minAngle, centerx, centery, rect) {
 
-    rect.attr('x', minAreax).attr('y', minAreay).attr('transform', 'rotate(' + minAngle + ',' + centerx + ',' + centery + ')');
+function releaseCargo(minAreax, minAreay,rect,fill) {
 
-    //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
-    //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
-    //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
-    //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
-}
-
-function releaseCargo(minAreax, minAreay, rect) {
-
-    rect.attr('x', minAreax).attr('y', minAreay).style('fill', 'none');
-
+    // rect.attr('x', minAreax).attr('y', minAreay).style('fill', fill);
+    rect.style('fill', fill);
     //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
     //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
     //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
@@ -252,6 +320,18 @@ function releaseCargo(minAreax, minAreay, rect) {
 function retrieveCounterID(x,y){
 
     //call xs service to get counter id
-    var cid = "A-1";
+    var cid = "";
+    if((parseInt(x) == 300) && (parseInt(y) == 50))
+         cid = "A-1";
+    if((parseInt(x) == 920) && (parseInt(y) == 215))
+        cid = "D-4";
+    if((parseInt(x) == 570) && (parseInt(y) == 160))
+        cid = "B-3";
+    if((parseInt(x) == 920) && (parseInt(y) == 380))
+        cid = "D-7";
     return cid;
+}
+
+function fillCounter(cid,fill){
+    d3.select("#"+cid).style('fill',fill);
 }

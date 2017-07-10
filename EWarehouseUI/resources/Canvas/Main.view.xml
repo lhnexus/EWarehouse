@@ -8,6 +8,11 @@
                             text="Charts"
                             titleStyle="H2"
                             width="100%"/>
+                    <Button text="Trigger Action" icon="sap-icon://factory" press="onClickTrigger" type="Accept">
+                        <layoutData>
+                            <ToolbarLayoutData shrinkable="true"/>
+                        </layoutData>
+                    </Button>
                 </l:BlockLayoutCell>
             </l:BlockLayoutRow>
             <l:BlockLayoutRow >

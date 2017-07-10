@@ -1,4 +1,4 @@
-sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast"],
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast", "./Util/svgUtil"],
     function (Controller,MessageToast) {
         "use strict";
 
@@ -19,6 +19,24 @@ sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast"],
 
 
             },
+
+            onClickTrigger: function(){
+                var oMovingModel = this.getView().getModel();
+
+                var carnums = oMovingModel.getData().Cars.length;
+                var carnum = 0;
+
+                while(carnum<carnums) {
+
+                    var carid = oMovingModel.getData().Cars[carnum].id;
+                    var rect = d3.select("#"+carid);
+                    moving(oMovingModel,carnum,rect);
+                    carnum++;
+                }
+
+            },
+
+
 
 
             press: function (oEvent) {
