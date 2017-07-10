@@ -9,6 +9,7 @@ function initCounter(svg, oMovingModel) {
         svg.append('rect').attr('x', oMovingModel.getData().Counters.Locations[i].x)
             .attr('y', oMovingModel.getData().Counters.Locations[i].y)
             .attr('width', cwidth).attr('height', cheight)
+            .attr('id', oMovingModel.getData().Counters.Locations[i].id)
             .style('fill', 'none')
             .style('stroke', oMovingModel.getData().Counters.stroke)
             .style('stroke-width', oMovingModel.getData().Counters.stroke_width)
@@ -109,6 +110,8 @@ function moving() {
                 if (isCP == "true") {
                     var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) - dist);
                     var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
+                    // var cid = retrieveCounterID(areax,areay);
+                    // d3.select("#"+cid).attr('fill','rgb(84,153,199)');
                 } else {
                     var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) + dist);
                     var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
@@ -118,7 +121,7 @@ function moving() {
                 // var areax = d3.interpolateRound(0,distx);
                 // var areay = d3.interpolateRound(0,disty);disty
                 return function (t) {
-                    console.log("start moving return");
+
 
                     var minAreax = areax(t);
                     var minAreay = areay(t);
@@ -166,6 +169,7 @@ function moving() {
                 }
                 var angleL = d3.interpolateRound(iangle, iangle - 90);
                 var angleR = d3.interpolateRound(iangle, iangle + 90);
+
 
 
                 return function (t) {
@@ -243,4 +247,11 @@ function releaseCargo(minAreax, minAreay, rect) {
     //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
     //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
     //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
+}
+
+function retrieveCounterID(x,y){
+
+    //call xs service to get counter id
+    var cid = "A-1";
+    return cid;
 }
