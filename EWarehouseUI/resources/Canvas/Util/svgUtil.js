@@ -29,7 +29,8 @@ function initCounter(svg, oMovingModel) {
 function initAreas(svg, oMovingModel) {
     var gcharging = svg.append('g');
     gcharging.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Charging.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Charging.y)+15).attr('font-size','13').text('Charging Area');
-    gcharging.append('rect').attr('x', oMovingModel.getData().Areas.Charging.x)
+    gcharging.append('rect').attr('id',oMovingModel.getData().Areas.Charging.id)
+        .attr('x', oMovingModel.getData().Areas.Charging.x)
         .attr('y', oMovingModel.getData().Areas.Charging.y)
         .attr('width', oMovingModel.getData().Areas.Charging.width)
         .attr('height', oMovingModel.getData().Areas.Charging.height)
@@ -37,7 +38,8 @@ function initAreas(svg, oMovingModel) {
         .style('stroke', oMovingModel.getData().Areas.Charging.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Charging.stroke_width);
 
-    var ginbound = svg.append('rect').attr('x', oMovingModel.getData().Areas.Inbound.x)
+    var ginbound = svg.append('rect').attr('id',oMovingModel.getData().Areas.Inbound.id)
+        .attr('x', oMovingModel.getData().Areas.Inbound.x)
         .attr('y', oMovingModel.getData().Areas.Inbound.y)
         .attr('width', oMovingModel.getData().Areas.Inbound.width)
         .attr('height', oMovingModel.getData().Areas.Inbound.height)
@@ -59,7 +61,8 @@ function initAreas(svg, oMovingModel) {
         .attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+60)
         .attr('font-size','18').text('Area');
 
-    var goutbound = svg.append('rect').attr('x', oMovingModel.getData().Areas.Outbound.x)
+    var goutbound = svg.append('rect').attr('id',oMovingModel.getData().Areas.Outbound.id)
+        .attr('x', oMovingModel.getData().Areas.Outbound.x)
         .attr('y', oMovingModel.getData().Areas.Outbound.y)
         .attr('width', oMovingModel.getData().Areas.Outbound.width)
         .attr('height', oMovingModel.getData().Areas.Outbound.height)
@@ -334,4 +337,30 @@ function retrieveCounterID(x,y){
 
 function fillCounter(cid,fill){
     d3.select("#"+cid).style('fill',fill);
+}
+
+function freshInbound(pull,oMovingModel,svg){
+
+    var qsize =  oMovingModel.getData().InbouldQueue.length;
+    //fresh Inbound Area
+    if(pull == "true"){
+
+    }else{
+        if(qsize>2){
+            //draw two box
+            var iarea = d3.select("#IArea");
+
+            svg.append('rect').attr('x', parseInt(iarea.attr('x'))+15)
+                .attr('y', parseInt(iarea.attr('y'))+15)
+                .attr('width', cwidth).attr('height', cheight)
+                .attr('id', oMovingModel.getData().Counters.Locations[i].id)
+                .style('fill', fill)
+                .style('stroke', oMovingModel.getData().Counters.stroke)
+                .style('stroke-width', oMovingModel.getData().Counters.stroke_width)
+                .style('stroke-dasharray', oMovingModel.getData().Counters.stroke_dasharray);
+
+        }
+
+
+    }
 }

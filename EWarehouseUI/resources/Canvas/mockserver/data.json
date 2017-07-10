@@ -1,6 +1,21 @@
 {
   "Cargo": {
+    "width": "50",
+    "height": "50",
     "content": "rgb(84,153,199)"
+  },
+  "InbouldQueue": [{
+    "id": "Cargo1",
+    "desc": "Cargo Item 1"
+  },{
+    "id": "Cargo2",
+    "desc": "Cargo Item 2"
+  },{
+    "id": "Cargo3",
+    "desc": "Cargo Item 3"
+  }],
+  "OutboundQueue":{
+
   },
   "Canvas": {
     "width": "1089",
@@ -8,6 +23,7 @@
   },
   "Areas":{
     "Charging": {
+      "id": "CArea",
       "width": "100",
       "height": "240",
       "stroke": "rgb(209,242,235)",
@@ -18,6 +34,7 @@
 
     },
     "Inbound": {
+      "id": "IArea",
       "width": "180",
       "height": "80",
       "stroke": "rgb(209,242,235)",
@@ -27,6 +44,7 @@
       "y": "660"
     },
     "Outbound": {
+      "id": "OArea",
       "width": "180",
       "height": "80",
       "stroke": "rgb(209,242,235)",
