@@ -13,6 +13,11 @@
                             <ToolbarLayoutData shrinkable="true"/>
                         </layoutData>
                     </Button>
+                    <Button text="Trigger Inbound" icon="sap-icon://factory" press="onClickRefreshInbound" type="Reject">
+                        <layoutData>
+                            <ToolbarLayoutData shrinkable="true"/>
+                        </layoutData>
+                    </Button>
                 </l:BlockLayoutCell>
             </l:BlockLayoutRow>
             <l:BlockLayoutRow >

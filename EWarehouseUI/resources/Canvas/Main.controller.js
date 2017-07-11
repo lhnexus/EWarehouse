@@ -36,7 +36,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast", "./Util/svgUti
 
             },
 
-
+            onClickRefreshInbound: function(){
+                var oMovingModel = this.getView().getModel();
+                var svg = d3.select("#Canvas_Main--tracking--tpage-cont");
+                freshInbound("true",oMovingModel,svg);
+            },
 
 
             press: function (oEvent) {
