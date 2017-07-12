@@ -2,9 +2,10 @@
   "Cargo": {
     "width": "50",
     "height": "50",
-    "content": "rgb(84,153,199)"
+    "content": "rgb(84,153,199)",
+    "reltime": "2000"
   },
-  "InbouldQueue": [{
+  "InboundQueue": [{
     "id": "Cargo1",
     "desc": "Cargo Item 1"
   },{
@@ -20,10 +21,14 @@
     "id": "Cargo5",
     "desc": "Cargo Item 5"
   }],
-  "OutboundQueue":{
-
-  },
+  "OutboundQueue":[
+    {
+      "id": "Cargo11",
+      "desc": "Cargo Item 11"
+    }
+  ],
   "Canvas": {
+    "id": "main_canvas",
     "width": "1089",
     "height": "850"
   },
@@ -42,7 +47,7 @@
     "Inbound": {
       "id": "IArea",
       "width": "180",
-      "height": "80",
+      "height": "90",
       "stroke": "rgb(209,242,235)",
       "stroke_width": "4",
       "text": "Inbound Area",
@@ -52,7 +57,7 @@
     "Outbound": {
       "id": "OArea",
       "width": "180",
-      "height": "80",
+      "height": "90",
       "stroke": "rgb(209,242,235)",
       "stroke_width": "4",
       "text": "Outbound Area",
@@ -215,7 +220,7 @@
       "id": "Car1",
       "width": "86",
       "height": "40",
-      "Speed": "0.05",
+      "Speed": "0.12",
       "fill": "true",
       "Locations": [
         {
@@ -226,14 +231,14 @@
           "NC": "false"
         },
         {
-          "x": "500",
+          "x": "440",
           "y": "450",
           "wtime": "0",
           "NS": "L",
           "NC": "false"
         },
         {
-          "x": "500",
+          "x": "440",
           "y": "70",
           "wtime": "0",
           "NS": "L",
@@ -247,14 +252,14 @@
           "NC": "false"
         },
         {
-          "x": "500",
+          "x": "440",
           "y": "70",
           "wtime": "0",
           "NS": "R",
           "NC": "false"
         },
         {
-          "x": "500",
+          "x": "440",
           "y": "450",
           "wtime": "0",
           "NS": "R",
@@ -274,15 +279,15 @@
       "fill": "false",
       "Locations": [
         {
-          "x": "563",
-          "y": "550",
+          "x": "300",
+          "y": "450",
           "wtime": "0",
           "NS": "S",
           "NC": "false"
         },
         {
           "x": "875",
-          "y": "550",
+          "y": "450",
           "wtime": "0",
           "NS": "L",
           "NC": "false"
@@ -310,14 +315,14 @@
         },
         {
           "x": "875",
-          "y": "550",
-          "wtime": "0",
+          "y": "450",
+          "wtime": "2000",
           "NS": "R",
           "NC": "false"
         },
         {
-          "x": "563",
-          "y": "550",
+          "x": "300",
+          "y": "450",
           "wtime": "0",
           "NS": "E",
           "NC": "false"
@@ -328,18 +333,25 @@
       "width": "86",
       "height": "40",
       "Speed": "0.1",
-      "fill": "true",
+      "fill": "false",
       "Locations": [
         {
-          "x": "325",
-          "y": "600",
+          "x": "100",
+          "y": "610",
           "wtime": "0",
           "NS": "S",
           "NC": "false"
         },
         {
+          "x": "225",
+          "y": "610",
+          "wtime": "0",
+          "NS": "I",
+          "NC": "false"
+        },
+        {
           "x": "450",
-          "y": "600",
+          "y": "610",
           "wtime": "0",
           "NS": "L",
           "NC": "false"
@@ -367,14 +379,14 @@
         },
         {
           "x": "450",
-          "y": "600",
+          "y": "610",
           "wtime": "0",
           "NS": "R",
           "NC": "false"
         },
         {
-          "x": "325",
-          "y": "600",
+          "x": "100",
+          "y": "610",
           "wtime": "0",
           "NS": "E",
           "NC": "false"
@@ -389,14 +401,14 @@
       "Locations": [
         {
           "x": "635",
-          "y": "620",
+          "y": "560",
           "wtime": "0",
           "NS": "S",
           "NC": "false"
         },
         {
           "x": "813",
-          "y": "620",
+          "y": "560",
           "wtime": "0",
           "NS": "L",
           "NC": "false"
@@ -424,19 +436,95 @@
         },
         {
           "x": "813",
-          "y": "620",
+          "y": "560",
           "wtime": "0",
           "NS": "R",
           "NC": "false"
         },
         {
           "x": "635",
-          "y": "620",
+          "y": "560",
           "wtime": "0",
           "NS": "E",
           "NC": "false"
         }
       ]
-    }
+    },{
+      "id": "Car5",
+      "width": "86",
+      "height": "40",
+      "Speed": "0.04",
+      "fill": "false",
+      "Locations": [
+        {
+          "x": "100",
+          "y": "520",
+          "wtime": "0",
+          "NS": "S",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "520",
+          "wtime": "2000",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "180",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "true"
+        },
+        {
+          "x": "613",
+          "y": "180",
+          "wtime": "0",
+          "NS": "N",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "180",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "610",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "755",
+          "y": "610",
+          "wtime": "0",
+          "NS": "O",
+          "NC": "false"
+        },
+        {
+          "x": "855",
+          "y": "610",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "855",
+          "y": "520",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "100",
+          "y": "520",
+          "wtime": "0",
+          "NS": "E",
+          "NC": "false"
+        }]}
       ]
 }

@@ -11,7 +11,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel",
                 oModel.loadData("Canvas/mockserver/data.json", null, false);
                 //this.getView().setModel(oModel);
                 this.getView().setModel(oModel);
-
+                window.oModel4Bound = this.getView().getModel();
 
                 //init room map
 
@@ -22,25 +22,26 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel",
                 var minArea, curColor;
 
 
-                var oMovingModel = this.getView().getModel();
-                var canvas_width = parseInt(oMovingModel.getData().Canvas.width);
-                var canvas_height = parseInt(oMovingModel.getData().Canvas.height);
+                // var oMovingModel = this.getView().getModel();
+                var canvas_width = parseInt(oModel4Bound.getData().Canvas.width);
+                var canvas_height = parseInt(oModel4Bound.getData().Canvas.height);
 
                 var svg = d3.select("#Canvas_Main--tracking--tpage-cont").append("svg")
                     .attr("width", canvas_width)
-                    .attr("height", canvas_height);
+                    .attr("height", canvas_height)
+                    .attr("id", oModel4Bound.getData().Canvas.id);
 
                 //factory counter initial
-                initCounter(svg, oMovingModel);
-                initAreas(svg, oMovingModel);
+                initCounter(svg, oModel4Bound);
+                initAreas(svg, oModel4Bound);
 
                 //Car moving initial
-                var carnums = oMovingModel.getData().Cars.length;
+                var carnums = oModel4Bound.getData().Cars.length;
                 var carnum = 0;
 
                 while(carnum<carnums) {
 
-                    initCars(svg, oMovingModel,carnum);
+                    initCars(svg, oModel4Bound,carnum);
                     carnum++;
                 }
 

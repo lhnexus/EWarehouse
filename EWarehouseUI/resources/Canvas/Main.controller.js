@@ -21,25 +21,25 @@ sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast", "./Util/svgUti
             },
 
             onClickTrigger: function(){
-                var oMovingModel = this.getView().getModel();
+                // var oMovingModel = this.getView().getModel();
 
-                var carnums = oMovingModel.getData().Cars.length;
+                var carnums = oModel4Bound.getData().Cars.length;
                 var carnum = 0;
-
+                var svg = d3.select("#"+oModel4Bound.getData().Canvas.id);
                 while(carnum<carnums) {
 
-                    var carid = oMovingModel.getData().Cars[carnum].id;
+                    var carid = oModel4Bound.getData().Cars[carnum].id;
                     var rect = d3.select("#"+carid);
-                    moving(oMovingModel,carnum,rect);
+                    moving(oModel4Bound,carnum,rect,svg);
                     carnum++;
                 }
 
             },
 
             onClickRefreshInbound: function(){
-                var oMovingModel = this.getView().getModel();
-                var svg = d3.select("#Canvas_Main--tracking--tpage-cont");
-                freshInbound("true",oMovingModel,svg);
+                // var oMovingModel = this.getView().getModel();
+                var svg = d3.select("#"+oModel4Bound.getData().Canvas.id);
+                freshOutbound("true",oModel4Bound,svg);
             },
 
 

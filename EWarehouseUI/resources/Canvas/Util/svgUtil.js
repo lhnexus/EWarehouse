@@ -8,9 +8,9 @@ function initCounter(svg, oMovingModel) {
 
     for (var i = 0; i < nums; i++) {
 
-        var ifill =  oMovingModel.getData().Counters.Locations[i].fill;
+        var ifill = oMovingModel.getData().Counters.Locations[i].fill;
         var fill = "none";
-        if(ifill == "true")
+        if (ifill == "true")
             fill = oMovingModel.getData().Cargo.content;
 
         svg.append('rect').attr('x', oMovingModel.getData().Counters.Locations[i].x)
@@ -28,8 +28,8 @@ function initCounter(svg, oMovingModel) {
 
 function initAreas(svg, oMovingModel) {
     var gcharging = svg.append('g');
-    gcharging.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Charging.x)+5).attr('y',parseInt(oMovingModel.getData().Areas.Charging.y)+15).attr('font-size','13').text('Charging Area');
-    gcharging.append('rect').attr('id',oMovingModel.getData().Areas.Charging.id)
+    gcharging.append('text').attr('x', parseInt(oMovingModel.getData().Areas.Charging.x) + 5).attr('y', parseInt(oMovingModel.getData().Areas.Charging.y) + 15).attr('font-size', '13').text('Charging Area');
+    gcharging.append('rect').attr('id', oMovingModel.getData().Areas.Charging.id)
         .attr('x', oMovingModel.getData().Areas.Charging.x)
         .attr('y', oMovingModel.getData().Areas.Charging.y)
         .attr('width', oMovingModel.getData().Areas.Charging.width)
@@ -38,7 +38,7 @@ function initAreas(svg, oMovingModel) {
         .style('stroke', oMovingModel.getData().Areas.Charging.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Charging.stroke_width);
 
-    var ginbound = svg.append('rect').attr('id',oMovingModel.getData().Areas.Inbound.id)
+    var ginbound = svg.append('rect').attr('id', oMovingModel.getData().Areas.Inbound.id)
         .attr('x', oMovingModel.getData().Areas.Inbound.x)
         .attr('y', oMovingModel.getData().Areas.Inbound.y)
         .attr('width', oMovingModel.getData().Areas.Inbound.width)
@@ -47,21 +47,21 @@ function initAreas(svg, oMovingModel) {
         .style('stroke', oMovingModel.getData().Areas.Inbound.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Inbound.stroke_width);
     var gtextin = svg.append('g');
-    gtextin.append('rect').attr('x', parseInt(oMovingModel.getData().Areas.Inbound.x)+parseInt(oMovingModel.getData().Areas.Inbound.width))
+    gtextin.append('rect').attr('x', parseInt(oMovingModel.getData().Areas.Inbound.x) + parseInt(oMovingModel.getData().Areas.Inbound.width))
         .attr('y', oMovingModel.getData().Areas.Inbound.y)
-        .attr('width', parseInt(oMovingModel.getData().Areas.Inbound.width)/2)
+        .attr('width', parseInt(oMovingModel.getData().Areas.Inbound.width) / 2)
         .attr('height', oMovingModel.getData().Areas.Inbound.height)
         .style('fill', 'none')
         .style('stroke', oMovingModel.getData().Areas.Inbound.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Inbound.stroke_width);
-    gtextin.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Inbound.x)+parseInt(oMovingModel.getData().Areas.Inbound.width)+15)
-        .attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+40)
-        .attr('font-size','18').text('Inbound');
-    gtextin.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Inbound.x)+parseInt(oMovingModel.getData().Areas.Inbound.width)+30)
-        .attr('y',parseInt(oMovingModel.getData().Areas.Inbound.y)+60)
-        .attr('font-size','18').text('Area');
+    gtextin.append('text').attr('x', parseInt(oMovingModel.getData().Areas.Inbound.x) + parseInt(oMovingModel.getData().Areas.Inbound.width) + 15)
+        .attr('y', parseInt(oMovingModel.getData().Areas.Inbound.y) + 40)
+        .attr('font-size', '18').text('Inbound');
+    gtextin.append('text').attr('x', parseInt(oMovingModel.getData().Areas.Inbound.x) + parseInt(oMovingModel.getData().Areas.Inbound.width) + 30)
+        .attr('y', parseInt(oMovingModel.getData().Areas.Inbound.y) + 60)
+        .attr('font-size', '18').text('Area');
 
-    var goutbound = svg.append('rect').attr('id',oMovingModel.getData().Areas.Outbound.id)
+    var goutbound = svg.append('rect').attr('id', oMovingModel.getData().Areas.Outbound.id)
         .attr('x', oMovingModel.getData().Areas.Outbound.x)
         .attr('y', oMovingModel.getData().Areas.Outbound.y)
         .attr('width', oMovingModel.getData().Areas.Outbound.width)
@@ -70,43 +70,44 @@ function initAreas(svg, oMovingModel) {
         .style('stroke', oMovingModel.getData().Areas.Outbound.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Outbound.stroke_width);
     var gtextout = svg.append('g');
-    gtextout.append('rect').attr('x', parseInt(oMovingModel.getData().Areas.Outbound.x)+parseInt(oMovingModel.getData().Areas.Outbound.width))
+    gtextout.append('rect').attr('x', parseInt(oMovingModel.getData().Areas.Outbound.x) + parseInt(oMovingModel.getData().Areas.Outbound.width))
         .attr('y', oMovingModel.getData().Areas.Outbound.y)
-        .attr('width', parseInt(oMovingModel.getData().Areas.Outbound.width)/2)
+        .attr('width', parseInt(oMovingModel.getData().Areas.Outbound.width) / 2)
         .attr('height', oMovingModel.getData().Areas.Outbound.height)
         .style('fill', 'none')
         .style('stroke', oMovingModel.getData().Areas.Outbound.stroke)
         .style('stroke-width', oMovingModel.getData().Areas.Outbound.stroke_width);
-    gtextout.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Outbound.x)+parseInt(oMovingModel.getData().Areas.Outbound.width)+6)
-        .attr('y',parseInt(oMovingModel.getData().Areas.Outbound.y)+40)
-        .attr('font-size','18').text('Outbound');
-    gtextout.append('text').attr('x',parseInt(oMovingModel.getData().Areas.Outbound.x)+parseInt(oMovingModel.getData().Areas.Outbound.width)+28)
-        .attr('y',parseInt(oMovingModel.getData().Areas.Outbound.y)+60)
-        .attr('font-size','18').text('Area');
+    gtextout.append('text').attr('x', parseInt(oMovingModel.getData().Areas.Outbound.x) + parseInt(oMovingModel.getData().Areas.Outbound.width) + 6)
+        .attr('y', parseInt(oMovingModel.getData().Areas.Outbound.y) + 40)
+        .attr('font-size', '18').text('Outbound');
+    gtextout.append('text').attr('x', parseInt(oMovingModel.getData().Areas.Outbound.x) + parseInt(oMovingModel.getData().Areas.Outbound.width) + 28)
+        .attr('y', parseInt(oMovingModel.getData().Areas.Outbound.y) + 60)
+        .attr('font-size', '18').text('Area');
 
-    freshInbound("false",oMovingModel,svg);
+    freshInbound("false", oMovingModel, svg);
+    freshOutbound("false", oMovingModel, svg);
 }
 
-function initCars(svg, oMovingModel,carnum) {
+function initCars(svg, oMovingModel, carnum) {
     var carid = oMovingModel.getData().Cars[carnum].id;
     var rectwidth = parseInt(oMovingModel.getData().Cars[carnum].width);
     var rectheight = parseInt(oMovingModel.getData().Cars[carnum].height);
 
-    var ifill =  oMovingModel.getData().Cars[carnum].fill;
+    var ifill = oMovingModel.getData().Cars[carnum].fill;
     var fill = "none";
-    if(ifill == "true")
+    if (ifill == "true")
         fill = oMovingModel.getData().Cargo.content;
-     svg.append('rect').attr('x', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].x) - rectwidth / 2)
+    svg.append('rect').attr('x', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].x) - rectwidth / 2)
         .attr('y', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].y) - rectheight / 2)
         .attr('width', rectwidth).attr('height', rectheight)
-        .attr('id',carid)
+        .attr('id', carid)
         .style('fill', fill)
         .style('stroke', 'rgb(209,242,235)')
         .style('stroke-width', '5');
 
 }
 
-function moving(oMovingModel,carnum,rect){
+function moving(oMovingModel, carnum, rect,svg) {
     var liter = 0;
     // this.oMovingModel = oMovingModel;
     // this.carnum = carnum;
@@ -122,7 +123,7 @@ function moving(oMovingModel,carnum,rect){
             //calculate moving duration based on the same speed
             var speed = parseFloat(oMovingModel.getData().Cars[carnum].Speed);
             var dura = 0;
-            var duarangle = Math.floor(90/speed);
+            var duarangle = parseInt(oMovingModel.getData().Cargo.reltime)+parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].wtime);
             var distx = Math.abs(parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].x) - parseInt(oMovingModel.getData().Cars[carnum].Locations[liter - 1].x));
             var disty = Math.abs(parseInt(oMovingModel.getData().Cars[carnum].Locations[liter].y) - parseInt(oMovingModel.getData().Cars[carnum].Locations[liter - 1].y));
             var dist = 0;
@@ -142,9 +143,10 @@ function moving(oMovingModel,carnum,rect){
             }
 
             //moving animation
-            rect.transition(this.carid+"move"+liter)
+            rect.transition(this.carid + "move" + liter)
                 .duration(dura)
-                .tween(this.carid+"precision"+liter, function () {0
+                .tween(this.carid + "precision" + liter, function () {
+                    0
 
                     if (isCP == "true") {
                         var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) - dist);
@@ -153,6 +155,7 @@ function moving(oMovingModel,carnum,rect){
                         var areax = d3.interpolateRound(parseInt(rect.attr('x')), parseInt(rect.attr('x')) + dist);
                         var areay = d3.interpolateRound(parseInt(rect.attr('y')), parseInt(rect.attr('y')));
                     }
+
 
 
                     // var areax = d3.interpolateRound(0,distx);
@@ -167,9 +170,9 @@ function moving(oMovingModel,carnum,rect){
                         // render(minAreax,minAreay);
                     };
                 })
-                .transition(this.carid+"rotate"+liter)
+                .transition(this.carid + "rotate" + liter)
                 .duration(duarangle)
-                .tween(this.carid+"rotate"+liter, function () {
+                .tween(this.carid + "rotate" + liter, function () {
                     var x = parseInt(rect.attr('x'));
                     var y = parseInt(rect.attr('y'));
                     var nx = x;
@@ -208,27 +211,34 @@ function moving(oMovingModel,carnum,rect){
                     var angleL;
                     var angleR;
                     var angleE;
-                    if(dist>0){
+                    if (dist > 0) {
                         angleL = d3.interpolateRound(iangle, iangle - 90);
                         angleR = d3.interpolateRound(iangle, iangle + 90);
-                    }else{
+                    } else {
                         angleL = d3.interpolateRound(iangle, iangle - 90);
                         angleR = d3.interpolateRound(iangle, iangle + 90);
                     }
-                    angleE = d3.interpolateRound(iangle, 0);
+                    angleE = d3.interpolateRound(iangle, iangle+180);
 
 
-                    var counterid = retrieveCounterID(ix,iy);
+                    var counterid = retrieveCounterID(ix, iy);
                     var cstatus;
                     var content = oMovingModel.getData().Cargo.content;
-                    if(counterid != "")
-                        cstatus= d3.select("#"+counterid).style('fill');
+                    if (counterid != "")
+                        cstatus = d3.select("#" + counterid).style('fill');
 
-                    if(direct == "N") {
+                    if (direct == "N") {
                         if (rect.style('fill') == "none")
-                            releaseCargo(ix, iy, rect, content);
+                            releaseCargo(rect, content);
                         else
-                            releaseCargo(ix, iy, rect, "none");
+                            releaseCargo(rect, "none");
+                    }
+
+                    if (direct == "I") {
+                        freshInbound("true",oModel4Bound,svg,rect);
+                    }
+                    if(direct == "O"){
+                        freshOutbound("true",oModel4Bound,svg,rect);
                     }
 
                     return function (t) {
@@ -265,10 +275,10 @@ function moving(oMovingModel,carnum,rect){
                                 case "N":
                                     // renderRotate(minAreax,minAreay,minAngleR,Math.floor(parseInt(rect.attr('x'))+parseInt(oMovingModel.getData().Cars[0].width)/2),Math.floor(parseInt(rect.attr('y'))+parseInt(oMovingModel.getData().Cars[0].height)/2),rect);
                                     //renderRotate(minAreax, minAreay, minAngleR, cx, cy, rect);
-                                    if(cstatus == "none")
-                                        fillCounter(counterid,content);
+                                    if (cstatus == "none")
+                                        fillCounter(counterid, content);
                                     else
-                                        fillCounter(counterid,"none");
+                                        fillCounter(counterid, "none");
                                     break;
                                 case "E":
                                     renderRotate(minAreax, minAreay, minAngleE, cx, cy, rect);
@@ -281,7 +291,7 @@ function moving(oMovingModel,carnum,rect){
 
                     };
                 })
-                .transition(this.carid+"repeat"+liter)
+                .transition(this.carid + "repeat" + liter)
                 .duration(1)
                 .each("end", repeating);
 
@@ -308,9 +318,7 @@ function moving(oMovingModel,carnum,rect){
 }
 
 
-
-
-function releaseCargo(minAreax, minAreay,rect,fill) {
+function releaseCargo(rect, fill) {
 
     // rect.attr('x', minAreax).attr('y', minAreay).style('fill', fill);
     rect.style('fill', fill);
@@ -320,35 +328,47 @@ function releaseCargo(minAreax, minAreay,rect,fill) {
     //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
 }
 
-function retrieveCounterID(x,y){
+function retrieveCounterID(x, y) {
 
     //call xs service to get counter id
     var cid = "";
-    if((parseInt(x) == 300) && (parseInt(y) == 50))
-         cid = "A-1";
-    if((parseInt(x) == 920) && (parseInt(y) == 215))
+    if ((parseInt(x) == 300) && (parseInt(y) == 50))
+        cid = "A-1";
+    if ((parseInt(x) == 920) && (parseInt(y) == 215))
         cid = "D-4";
-    if((parseInt(x) == 570) && (parseInt(y) == 160))
+    if ((parseInt(x) == 570) && (parseInt(y) == 160))
         cid = "B-3";
-    if((parseInt(x) == 920) && (parseInt(y) == 380))
+    if ((parseInt(x) == 920) && (parseInt(y) == 380))
         cid = "D-7";
     return cid;
 }
 
-function fillCounter(cid,fill){
-    d3.select("#"+cid).style('fill',fill);
+function fillCounter(cid, fill) {
+    d3.select("#" + cid).style('fill', fill);
 }
 
-function getInboundByOrder(oMovingModel){
+function getInboundByOrder(oMovingModel) {
 
     //retrieve the first cargo id
-    return oMovingModel.getData().InbouldQueue;
+    return oMovingModel.getData().InboundQueue;
+}
+
+function getOutboundByOrder(oMovingModel) {
+
+    //retrieve the first cargo id
+    return oMovingModel.getData().OutboundQueue;
+}
+
+function retrieveCargoId(carid){
+    var cargoid;
+
+    return cargoid;
 }
 
 
-function freshInbound(pull,oMovingModel,svg){
+function freshInbound(pull, oMovingModel, svg,rect) {
 
-    var inbounds =  getInboundByOrder(oMovingModel);
+    var inbounds = getInboundByOrder(oMovingModel);
     var qsize = inbounds.length;
     //draw two box
     var liter = 0;
@@ -356,78 +376,85 @@ function freshInbound(pull,oMovingModel,svg){
     var xoffset = 15;
     var yoffset = 10;
     var iareax = parseInt(iarea.attr('x'));
-    var iareay = parseInt(iarea.attr('y'))
-
+    var iareay = parseInt(iarea.attr('y'));
+    var dura = parseInt(oMovingModel.getData().Cargo.reltime);
+    var content = oMovingModel.getData().Cargo.content;
     //fresh Inbound Area
-    if(pull == "true"){
-        while(liter<qsize){
-            var cargo = d3.select("#"+inbounds[liter].id);
-            var distx = 15+parseInt(iarea.attr('width')) / 3;
-            var disty = 15+parseInt(iarea.attr('height')) / 3;
-            var cargox;
-            var cargoy;
-
-            if(liter<4){
-                cargox = parseInt(cargo.attr('x'));
-                cargoy = parseInt(cargo.attr('y'));
-            }
-
+    if (pull == "true") {
+        while (liter < qsize) {
+            var cargo = d3.select("#" + inbounds[liter].id);
+            var distx = 15 + parseInt(iarea.attr('width')) / 3;
+            var disty = 10 + parseInt(iarea.attr('height')) / 3;
             switch (liter) {
                 case 0:
-                   cargo.transition(inbounds[liter].id+"move")
-                        .duration(2000)
-                        .tween(inbounds[liter].id+"precision", function () {
-                                var areax = d3.interpolateRound(cargox, cargox);
-                                var areay = d3.interpolateRound(cargoy, cargoy-disty);
+                    cargo.transition(inbounds[liter].id + "move")
+                        .duration(dura)
+                        .tween(inbounds[liter].id + "precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
+                            var areax = d3.interpolateRound(cargox, cargox);
+                            var areay = d3.interpolateRound(cargoy, cargoy - disty-35);
 
                             return function (t) {
 
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
-                                cargo.attr('x', minAreax).attr('y', minAreay);
-                                //decide moving or rotation
-                                // render(minAreax,minAreay);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
+                                if(t== 1){
+                                    releaseCargo(rect, content);
+                                    inbounds.splice(0,1);
+                                }
+
                             };
-                        });
+                        }).remove();
                     break;
                 case 1:
                     cargo.transition(inbounds[liter].id+"move")
-                        .duration(2000)
+                        .duration(dura)
                         .tween(inbounds[liter].id+"precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
                             var areax = d3.interpolateRound(cargox, cargox);
-                            var areay = d3.interpolateRound(cargoy, cargoy-disty);
+                            var areay = d3.interpolateRound(cargoy, cargoy - disty);
 
                             return function (t) {
 
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
-                                cargo.attr('x', minAreax).attr('y', minAreay);
-                                //decide moving or rotation
-                                // render(minAreax,minAreay);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
                             };
                         });
                     break;
                 case 2:
                     cargo.transition(inbounds[liter].id+"move")
-                        .duration(2000)
-                        .tween(inbounds[liter].id+"precision", function () {
-                            var areax = d3.interpolateRound(cargox, cargox-distx);
-                            var areay = d3.interpolateRound(cargoy, cargoy);
+                    .duration(dura)
+                    .tween(inbounds[liter].id+"precision", function () {
+                        var cCargo = this;
+                        var cargox = parseInt(cCargo.getAttribute('x'));
+                        var cargoy = parseInt(cCargo.getAttribute('y'));
+                        var areax = d3.interpolateRound(cargox, cargox-distx);
+                        var areay = d3.interpolateRound(cargoy, cargoy);
 
-                            return function (t) {
+                        return function (t) {
 
-                                var minAreax = areax(t);
-                                var minAreay = areay(t);
-                                cargo.attr('x', minAreax).attr('y', minAreay);
-                                //decide moving or rotation
-                                // render(minAreax,minAreay);
-                            };
-                        });
+                            var minAreax = areax(t);
+                            var minAreay = areay(t);
+                            cCargo.setAttribute('x', minAreax);
+                            cCargo.setAttribute('y', minAreay);
+                        };
+                    });
                     break;
                 case 3:
                     cargo.transition(inbounds[liter].id+"move")
-                        .duration(2000)
+                        .duration(dura)
                         .tween(inbounds[liter].id+"precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
                             var areax = d3.interpolateRound(cargox, cargox);
                             var areay = d3.interpolateRound(cargoy, cargoy+disty);
 
@@ -435,19 +462,67 @@ function freshInbound(pull,oMovingModel,svg){
 
                                 var minAreax = areax(t);
                                 var minAreay = areay(t);
-                                cargo.attr('x', minAreax).attr('y', minAreay);
-                                //decide moving or rotation
-                                // render(minAreax,minAreay);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
                             };
                         });
                     break;
                 case 4:
-                    svg.append('rect').attr('x', iareax+2 * xoffset + parseInt(iarea.attr('width')) / 3)
-                        .attr('y', iareay+2 * yoffset + parseInt(iarea.attr('height')) / 3)
+                    svg.append('rect').attr('x', iareax + 2 * xoffset + parseInt(iarea.attr('width')) / 3)
+                        .attr('y', iareay + yoffset)
                         .attr('width', parseInt(iarea.attr('width')) / 3)
                         .attr('height', parseInt(iarea.attr('height')) / 3)
-                        .attr('id', oMovingModel.getData().InbouldQueue[liter].id)
+                        .attr('id', oMovingModel.getData().InboundQueue[liter].id)
                         .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                default:
+                    break;
+            }
+
+            liter++;
+
+        }
+
+    } else {
+        if (qsize > 4) {
+            qsize = 4;
+        }
+        while (liter < qsize) {
+            switch (liter) {
+                case 0:
+                    svg.append('rect').attr('x', iareax + xoffset)
+                        .attr('y', iareay + yoffset)
+                        .attr('width', parseInt(iarea.attr('width')) / 3)
+                        .attr('height', parseInt(iarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().InboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                case 1:
+                    svg.append('rect').attr('x', iareax + xoffset)
+                        .attr('y', iareay + 2 * yoffset + parseInt(iarea.attr('height')) / 3)
+                        .attr('width', parseInt(iarea.attr('width')) / 3)
+                        .attr('height', parseInt(iarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().InboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                case 2:
+                    // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                    svg.append('rect').attr('x', iareax + 2 * xoffset + parseInt(iarea.attr('width')) / 3)
+                        .attr('y', iareay + 2 * yoffset + parseInt(iarea.attr('height')) / 3)
+                        .attr('width', parseInt(iarea.attr('width')) / 3)
+                        .attr('height', parseInt(iarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().InboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                case 3:
+                    // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                    svg.append('rect').attr('x', iareax + 2 * xoffset + parseInt(iarea.attr('width')) / 3)
+                        .attr('y', iareay + yoffset)
+                        .attr('width', parseInt(iarea.attr('width')) / 3)
+                        .attr('height', parseInt(iarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().InboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+
                     break;
                 default:
                     break;
@@ -456,56 +531,202 @@ function freshInbound(pull,oMovingModel,svg){
 
         }
 
-    }else{
-        if(qsize>4) {
-            qsize = 4;
-        }
-            while(liter<qsize){
-                switch (liter) {
-                    case 0:
-                        svg.append('rect').attr('x', iareax+xoffset)
-                            .attr('y', iareay + yoffset)
-                            .attr('width', parseInt(iarea.attr('width')) / 3)
-                            .attr('height', parseInt(iarea.attr('height')) / 3)
-                            .attr('id', oMovingModel.getData().InbouldQueue[liter].id)
-                            .style('fill', oMovingModel.getData().Cargo.content);
-                        break;
-                    case 1:
-                        svg.append('rect').attr('x', iareax+xoffset)
-                            .attr('y', iareay+2 * yoffset + parseInt(iarea.attr('height')) / 3)
-                            .attr('width', parseInt(iarea.attr('width')) / 3)
-                            .attr('height', parseInt(iarea.attr('height')) / 3)
-                            .attr('id', oMovingModel.getData().InbouldQueue[liter].id)
-                            .style('fill', oMovingModel.getData().Cargo.content);
-                        break;
-                    case 2:
-                        // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
-                        svg.append('rect').attr('x', iareax+2 * xoffset + parseInt(iarea.attr('width')) / 3)
-                            .attr('y', iareay+yoffset)
-                            .attr('width', parseInt(iarea.attr('width')) / 3)
-                            .attr('height', parseInt(iarea.attr('height')) / 3)
-                            .attr('id', oMovingModel.getData().InbouldQueue[liter].id)
-                            .style('fill', oMovingModel.getData().Cargo.content);
-                        break;
-                    case 3:
-                        // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
-                        svg.append('rect').attr('x', iareax+2 * xoffset + parseInt(iarea.attr('width')) / 3)
-                            .attr('y', iareay+2 * yoffset + parseInt(iarea.attr('height')) / 3)
-                            .attr('width', parseInt(iarea.attr('width')) / 3)
-                            .attr('height', parseInt(iarea.attr('height')) / 3)
-                            .attr('id', oMovingModel.getData().InbouldQueue[liter].id)
-                            .style('fill', oMovingModel.getData().Cargo.content);
-                        break;
-                    default:
-                        break;
-                }
-                liter++;
 
+    }
+
+
+}
+
+
+function freshOutbound(push, oMovingModel, svg,rect) {
+
+    var outbounds = getOutboundByOrder(oMovingModel);
+    var qsize = outbounds.length;
+    //draw two box
+    var liter = 0;
+    var oarea = d3.select("#OArea");
+    var xoffset = 15;
+    var yoffset = 10;
+    var oareax = parseInt(oarea.attr('x'));
+    var oareay = parseInt(oarea.attr('y'));
+    var dura = parseInt(oMovingModel.getData().Cargo.reltime);
+    var content = oMovingModel.getData().Cargo.content;
+    //fresh Inbound Area
+    if (push == "true") {
+        while (liter < qsize) {
+            var cargo = d3.select("#" + outbounds[liter].id);
+
+            switch (liter) {
+                case 0:
+                    cargo.transition(outbounds[liter].id + "move")
+                        .duration(dura)
+                        .tween(outbounds[liter].id + "precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
+                            var areax = d3.interpolateRound(cargox, cargox);
+                            var areay = d3.interpolateRound(cargoy, cargoy+disty);
+
+                            return function (t) {
+
+                                var minAreax = areax(t);
+                                var minAreay = areay(t);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
+
+                            };
+                        }).remove();
+                    break;
+                case 1:
+                    cargo.transition(outbounds[liter].id+"move")
+                        .duration(dura)
+                        .tween(outbounds[liter].id+"precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
+                            var areax = d3.interpolateRound(cargox, cargox + distx);
+                            var areay = d3.interpolateRound(cargoy, cargoy);
+
+                            return function (t) {
+
+                                var minAreax = areax(t);
+                                var minAreay = areay(t);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
+                            };
+                        });
+                    break;
+                case 2:
+                    cargo.transition(outbounds[liter].id+"move")
+                        .duration(dura)
+                        .tween(outbounds[liter].id+"precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
+                            var areax = d3.interpolateRound(cargox, cargox);
+                            var areay = d3.interpolateRound(cargoy, cargoy - disty);
+
+                            return function (t) {
+
+                                var minAreax = areax(t);
+                                var minAreay = areay(t);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
+                            };
+                        });
+                    break;
+                case 3:
+                    cargo.transition(outbounds[liter].id+"move")
+                        .duration(dura)
+                        .tween(outbounds[liter].id+"precision", function () {
+                            var cCargo = this;
+                            var cargox = parseInt(cCargo.getAttribute('x'));
+                            var cargoy = parseInt(cCargo.getAttribute('y'));
+                            var areax = d3.interpolateRound(cargox, cargox+distx);
+                            var areay = d3.interpolateRound(cargoy, cargoy);
+
+                            return function (t) {
+
+                                var minAreax = areax(t);
+                                var minAreay = areay(t);
+                                cCargo.setAttribute('x', minAreax);
+                                cCargo.setAttribute('y', minAreay);
+                            };
+                        }).remove();
+                    break;
+                case 4:
+
+                    break;
+                default:
+                    break;
             }
 
+            liter++;
+
+        }
+        var distx = 15 + parseInt(oarea.attr('width')) / 3;
+        var disty = 10 + parseInt(oarea.attr('height')) / 3;
+        var newcargo = {
+            id: "new_outbound",
+            desc: "new outbound Cargo"
+        }
+        var ncargo =svg.append('rect').attr('x', parseInt(oarea.attr('x'))+15)
+            .attr('y', parseInt(oarea.attr('y'))-35-parseInt(oarea.attr('height')) / 3)
+            .attr('width', parseInt(oarea.attr('width')) / 3)
+            .attr('height', parseInt(oarea.attr('height')) / 3)
+            .attr('id', "new_outbound")
+            .style('fill', oMovingModel.getData().Cargo.content);
+        releaseCargo(rect, "none");
+        outbounds.push(newcargo);
+        ncargo.transition("new_outbound move")
+            .duration(dura)
+            .tween("new_outbound precision", function () {
+                var cCargo = this;
+                var cargox = parseInt(cCargo.getAttribute('x'));
+                var cargoy = parseInt(cCargo.getAttribute('y'));
+                var areax = d3.interpolateRound(cargox, cargox);
+                var areay = d3.interpolateRound(cargoy, cargoy+disty+35);
+
+
+                return function (t) {
+
+                    var minAreax = areax(t);
+                    var minAreay = areay(t);
+                    cCargo.setAttribute('x', minAreax);
+                    cCargo.setAttribute('y', minAreay);
+
+                };
+            });
+    } else {
+        if (qsize > 4) {
+            qsize = 4;
+        }
+        while (liter < qsize) {
+            switch (liter) {
+                case 0:
+                    svg.append('rect').attr('x', oareax + xoffset)
+                        .attr('y', oareay + yoffset)
+                        .attr('width', parseInt(oarea.attr('width')) / 3)
+                        .attr('height', parseInt(oarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().OutboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                case 1:
+                    svg.append('rect').attr('x', oareax + xoffset)
+                        .attr('y', oareay + 2 * yoffset + parseInt(oarea.attr('height')) / 3)
+                        .attr('width', parseInt(oarea.attr('width')) / 3)
+                        .attr('height', parseInt(oarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().OutboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                case 2:
+                    // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                    svg.append('rect').attr('x', oareax + 2 * xoffset + parseInt(oarea.attr('width')) / 3)
+                        .attr('y', iareay + 2 * yoffset + parseInt(oarea.attr('height')) / 3)
+                        .attr('width', parseInt(oarea.attr('width')) / 3)
+                        .attr('height', parseInt(oarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().OutboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+                    break;
+                case 3:
+                    // renderRotate(minAreax,minAreay,minAngleL,Math.floor(parseInt(rect.attr('x'))+rect.attr('width')/2),Math.floor(parseInt(rect.attr('y'))+rect.attr('height')/2),rect);
+                    svg.append('rect').attr('x', oareax + 2 * xoffset + parseInt(oarea.attr('width')) / 3)
+                        .attr('y', oareay + yoffset)
+                        .attr('width', parseInt(oarea.attr('width')) / 3)
+                        .attr('height', parseInt(oarea.attr('height')) / 3)
+                        .attr('id', oMovingModel.getData().OutboundQueue[liter].id)
+                        .style('fill', oMovingModel.getData().Cargo.content);
+
+                    break;
+                default:
+                    break;
+            }
+            liter++;
 
         }
 
+
+    }
 
 
 }
