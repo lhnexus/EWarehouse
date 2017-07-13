@@ -319,13 +319,7 @@ function moving(oMovingModel, carnum, rect,svg) {
 
 
 function releaseCargo(rect, fill) {
-
-    // rect.attr('x', minAreax).attr('y', minAreay).style('fill', fill);
     rect.style('fill', fill);
-    //rect.attr('x',minAreax).attr('y',minAreay).style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+',500,325)');
-    //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+','+centerx+','+centery+')');
-    //rect.style('fill','rgb(84,153,199)').attr('transform','rotate('+minAngle+')');
-    //text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
 }
 
 function retrieveCounterID(x, y) {
@@ -360,8 +354,7 @@ function getOutboundByOrder(oMovingModel) {
 }
 
 function retrieveCargoId(carid){
-    var cargoid;
-
+    var cargoid = "new_outbound"+Math.floor(Math.random()*100);
     return cargoid;
 }
 
@@ -551,8 +544,11 @@ function freshOutbound(push, oMovingModel, svg,rect) {
     var oareay = parseInt(oarea.attr('y'));
     var dura = parseInt(oMovingModel.getData().Cargo.reltime);
     var content = oMovingModel.getData().Cargo.content;
+    var distx = 15 + parseInt(oarea.attr('width')) / 3;
+    var disty = 10 + parseInt(oarea.attr('height')) / 3;
     //fresh Inbound Area
     if (push == "true") {
+
         while (liter < qsize) {
             var cargo = d3.select("#" + outbounds[liter].id);
 
@@ -575,7 +571,7 @@ function freshOutbound(push, oMovingModel, svg,rect) {
                                 cCargo.setAttribute('y', minAreay);
 
                             };
-                        }).remove();
+                        });
                     break;
                 case 1:
                     cargo.transition(outbounds[liter].id+"move")
@@ -635,7 +631,6 @@ function freshOutbound(push, oMovingModel, svg,rect) {
                         }).remove();
                     break;
                 case 4:
-
                     break;
                 default:
                     break;
@@ -644,20 +639,19 @@ function freshOutbound(push, oMovingModel, svg,rect) {
             liter++;
 
         }
-        var distx = 15 + parseInt(oarea.attr('width')) / 3;
-        var disty = 10 + parseInt(oarea.attr('height')) / 3;
+        var nid = retrieveCargoId("carid");
         var newcargo = {
-            id: "new_outbound",
+            id: nid,
             desc: "new outbound Cargo"
         }
         var ncargo =svg.append('rect').attr('x', parseInt(oarea.attr('x'))+15)
             .attr('y', parseInt(oarea.attr('y'))-35-parseInt(oarea.attr('height')) / 3)
             .attr('width', parseInt(oarea.attr('width')) / 3)
             .attr('height', parseInt(oarea.attr('height')) / 3)
-            .attr('id', "new_outbound")
+            .attr('id', nid)
             .style('fill', oMovingModel.getData().Cargo.content);
         releaseCargo(rect, "none");
-        outbounds.push(newcargo);
+        outbounds.unshift(newcargo);
         ncargo.transition("new_outbound move")
             .duration(dura)
             .tween("new_outbound precision", function () {
