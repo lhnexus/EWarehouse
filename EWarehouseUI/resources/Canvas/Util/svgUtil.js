@@ -724,3 +724,27 @@ function freshOutbound(push, oMovingModel, svg,rect) {
 
 
 }
+
+function freshDetail(){
+//     oDetailView = sap.ui.view({
+//         preprocessors : {
+//             xml : {
+//                 bindingContexts : {
+//                     meta : oMetaModel.createBindingContext(sMetadataPath)
+//                 },
+//                 models : {
+//                     meta : oMetaModel
+//                 },
+//                 bindTexts : that.getView().getModel("ui").getProperty("/bindTexts")
+//             }
+//         },
+//         type : ViewType.XML,
+//         viewName : "sap.ui.core.sample.ViewTemplate.scenario.Detail"
+//     });
+//     oDetailView.bindElement(sPath);
+// });
+//
+// oDetailBox.destroyContent();
+// iStart = Date.now();
+// oDetailBox.addContent(oDetailView);
+}
