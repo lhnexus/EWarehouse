@@ -234,22 +234,24 @@
       "gtype": "HANA Server",
       "GoodTimeLine": [{
         "title": "Raw Material Reception",
-        "time": "2012-04-23T18:25:43.511Z"
+        "time": "Date(1332403200000)"
+
       },{
         "title": "Inspection",
-        "time": "2012-04-23T18:25:43.511Z"
+        "time": "Date(1371020400000)"
+
       },{
         "title": "Assembling",
-        "time": "2012-04-23T18:25:43.511Z"
+        "time": "Date(1376290800000)"
       },{
         "title": "Packing",
-        "time": "2012-04-23T18:25:43.511Z"
+        "time": "Date(1422777600000)"
       },{
         "title": "Storage",
-        "time": "2012-04-23T18:25:43.511Z"
+        "time": "Date(1473404400000)"
       },{
         "title": "Delivery",
-        "time": "2012-04-23T18:25:43.511Z"
+        "time": "Date(1572697200000)"
       }],
       "Locations": [
         {

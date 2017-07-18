@@ -65,16 +65,19 @@
 								axisOrientation="Vertical"
 								enableScroll="true"
 								enableDoubleSided="true"
+								groupBy="time"
+								growingThreshold="0"
+								sort="true"
+								sortOldestFirst="true"
 								content="{/GoodTimeLine}"
 								showIcons="true"
 								showFilterBar="false"
-								width = "500px">
+								width = "630px">
 							<content>
 								<TimelineItem
 										id="idTemplateItem"
 										dateTime="{time}"
 										title="{title}"
-										width="100px"
 								>
 								</TimelineItem>
 							</content>
