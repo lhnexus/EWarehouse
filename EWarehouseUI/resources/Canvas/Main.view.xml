@@ -25,7 +25,7 @@
                         <mvc:XMLView id="tracking" viewName="Canvas.Track.tracking" height="750px" class="sapUiNoMarginTop"/>
                     </l:BlockLayoutCell>
                     <l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="40%">
-                        <Title text="Right" titleStyle="H2" width="100%"/>
+                        <mvc:XMLView id="robotdetail" viewName="Canvas.Track.robotDetail" class="sapUiNoMarginTop"/>
                     </l:BlockLayoutCell>
             </l:BlockLayoutRow>
         </l:BlockLayout>

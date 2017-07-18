@@ -222,6 +222,35 @@
       "height": "40",
       "Speed": "0.12",
       "fill": "true",
+      "status": "working",
+      "remain": "49",
+      "tid": "T077H821",
+      "ttype": "Goods Issue",
+      "sLoc": "Inbound Area",
+      "tLoc": "A-1",
+      "rid": "R12037",
+      "gid": "G032",
+      "rtype": "Mobile Rack",
+      "gtype": "HANA Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "2012-04-23T18:25:43.511Z"
+      },{
+        "title": "Inspection",
+        "time": "2012-04-23T18:25:43.511Z"
+      },{
+        "title": "Assembling",
+        "time": "2012-04-23T18:25:43.511Z"
+      },{
+        "title": "Packing",
+        "time": "2012-04-23T18:25:43.511Z"
+      },{
+        "title": "Storage",
+        "time": "2012-04-23T18:25:43.511Z"
+      },{
+        "title": "Delivery",
+        "time": "2012-04-23T18:25:43.511Z"
+      }],
       "Locations": [
         {
           "x": "100",

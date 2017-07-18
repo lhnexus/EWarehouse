@@ -1,30 +1,30 @@
 /**
  * Created by nexusl on 2017/7/9.
  */
-function initCounter(svg, oMovingModel) {
-    var nums = parseInt(oMovingModel.getData().Counters.Locations.length);
-    var cwidth = parseInt(oMovingModel.getData().Counters.width);
-    var cheight = parseInt(oMovingModel.getData().Counters.height);
-
-    for (var i = 0; i < nums; i++) {
-
-        var ifill = oMovingModel.getData().Counters.Locations[i].fill;
-        var fill = "none";
-        if (ifill == "true")
-            fill = oMovingModel.getData().Cargo.content;
-
-        svg.append('rect').attr('x', oMovingModel.getData().Counters.Locations[i].x)
-            .attr('y', oMovingModel.getData().Counters.Locations[i].y)
-            .attr('width', cwidth).attr('height', cheight)
-            .attr('id', oMovingModel.getData().Counters.Locations[i].id)
-            .style('fill', fill)
-            .style('stroke', oMovingModel.getData().Counters.stroke)
-            .style('stroke-width', oMovingModel.getData().Counters.stroke_width)
-            .style('stroke-dasharray', oMovingModel.getData().Counters.stroke_dasharray);
-    }
-
-
-}
+// function initCounter(svg, oMovingModel) {
+//     var nums = parseInt(oMovingModel.getData().Counters.Locations.length);
+//     var cwidth = parseInt(oMovingModel.getData().Counters.width);
+//     var cheight = parseInt(oMovingModel.getData().Counters.height);
+//
+//     for (var i = 0; i < nums; i++) {
+//
+//         var ifill = oMovingModel.getData().Counters.Locations[i].fill;
+//         var fill = "none";
+//         if (ifill == "true")
+//             fill = oMovingModel.getData().Cargo.content;
+//
+//         svg.append('rect').attr('x', oMovingModel.getData().Counters.Locations[i].x)
+//             .attr('y', oMovingModel.getData().Counters.Locations[i].y)
+//             .attr('width', cwidth).attr('height', cheight)
+//             .attr('id', oMovingModel.getData().Counters.Locations[i].id)
+//             .style('fill', fill)
+//             .style('stroke', oMovingModel.getData().Counters.stroke)
+//             .style('stroke-width', oMovingModel.getData().Counters.stroke_width)
+//             .style('stroke-dasharray', oMovingModel.getData().Counters.stroke_dasharray);
+//     }
+//
+//
+// }
 
 function initAreas(svg, oMovingModel) {
     var gcharging = svg.append('g');
@@ -88,24 +88,27 @@ function initAreas(svg, oMovingModel) {
     freshOutbound("false", oMovingModel, svg);
 }
 
-function initCars(svg, oMovingModel, carnum) {
-    var carid = oMovingModel.getData().Cars[carnum].id;
-    var rectwidth = parseInt(oMovingModel.getData().Cars[carnum].width);
-    var rectheight = parseInt(oMovingModel.getData().Cars[carnum].height);
-
-    var ifill = oMovingModel.getData().Cars[carnum].fill;
-    var fill = "none";
-    if (ifill == "true")
-        fill = oMovingModel.getData().Cargo.content;
-    svg.append('rect').attr('x', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].x) - rectwidth / 2)
-        .attr('y', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].y) - rectheight / 2)
-        .attr('width', rectwidth).attr('height', rectheight)
-        .attr('id', carid)
-        .style('fill', fill)
-        .style('stroke', 'rgb(209,242,235)')
-        .style('stroke-width', '5');
-
-}
+// function initCars(svg, oMovingModel, MessageToast,carnum) {
+//     var carid = oMovingModel.getData().Cars[carnum].id;
+//     var rectwidth = parseInt(oMovingModel.getData().Cars[carnum].width);
+//     var rectheight = parseInt(oMovingModel.getData().Cars[carnum].height);
+//
+//     var ifill = oMovingModel.getData().Cars[carnum].fill;
+//     var fill = "none";
+//     if (ifill == "true")
+//         fill = oMovingModel.getData().Cargo.content;
+//     svg.append('rect').attr('x', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].x) - rectwidth / 2)
+//         .attr('y', parseInt(oMovingModel.getData().Cars[carnum].Locations[0].y) - rectheight / 2)
+//         .attr('width', rectwidth).attr('height', rectheight)
+//         .attr('id', carid)
+//         .style('fill', fill)
+//         .style('stroke', 'rgb(209,242,235)')
+//         .style('stroke-width', '5')
+//         .on("click",function(){
+//             MessageToast.show("click car");
+//         });
+//
+// }
 
 function moving(oMovingModel, carnum, rect,svg) {
     var liter = 0;
