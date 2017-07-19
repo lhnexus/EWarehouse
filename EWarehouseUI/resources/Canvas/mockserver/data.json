@@ -65,6 +65,14 @@
       "y": "660"
     }
   },
+  "Warehouse": {
+    "Capacity": "78%",
+    "RoUtRate": "62.5%",
+    "Temperature": "23.8",
+    "Humidity": "44.6%"
+
+  },
+
   "Counters":{
     "width": "86",
     "height": "40",
@@ -224,6 +232,7 @@
       "fill": "true",
       "status": "working",
       "remain": "49",
+      "ricon": "Canvas/img/u152.png",
       "tid": "T077H821",
       "ttype": "Goods Issue",
       "sLoc": "Inbound Area",
@@ -234,24 +243,30 @@
       "gtype": "HANA Server",
       "GoodTimeLine": [{
         "title": "Raw Material Reception",
-        "time": "Date(1332403200000)"
+        "time": "Date(1470403200000)",
+        "Icon": "sap-icon://shipping-status"
 
       },{
         "title": "Inspection",
-        "time": "Date(1371020400000)"
+        "time": "Date(1471020400000)",
+        "Icon": "sap-icon://action-settings"
 
       },{
         "title": "Assembling",
-        "time": "Date(1376290800000)"
+        "time": "Date(1471290800000)",
+        "Icon": "sap-icon://wrench"
       },{
         "title": "Packing",
-        "time": "Date(1422777600000)"
+        "time": "Date(1472777600000)",
+        "Icon": "sap-icon://product"
       },{
         "title": "Storage",
-        "time": "Date(1473404400000)"
+        "time": "Date(1473404400000)",
+        "Icon": "sap-icon://database"
       },{
         "title": "Delivery",
-        "time": "Date(1572697200000)"
+        "time": "Date(1476697200000)",
+        "Icon": "sap-icon://decision"
       }],
       "Locations": [
         {
@@ -308,6 +323,44 @@
       "height": "40",
       "Speed": "0.15",
       "fill": "false",
+      "status": "working",
+      "remain": "30",
+      "ricon": "Canvas/img/u152.png",
+      "tid": "T086H938",
+      "ttype": "Goods Issue",
+      "sLoc": "D-4",
+      "tLoc": "Outbound Area",
+      "rid": "R12104",
+      "gid": "G046",
+      "rtype": "Mobile Rack",
+      "gtype": "Windows Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470403279843)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471031248060)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471281900010)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472666700000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473907100000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477108200000)",
+        "Icon": "sap-icon://decision"
+      }],
       "Locations": [
         {
           "x": "300",
@@ -365,6 +418,44 @@
       "height": "40",
       "Speed": "0.1",
       "fill": "false",
+      "status": "working",
+      "remain": "34",
+      "ricon": "Canvas/img/u152.png",
+      "tid": "T096F587",
+      "ttype": "Goods Issue",
+      "sLoc": "B-3",
+      "tLoc": "Outbound Area",
+      "rid": "R16045",
+      "gid": "G012",
+      "rtype": "Mobile Rack",
+      "gtype": "EMC Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470912200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471234400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471647800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472457600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473547400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477102200000)",
+        "Icon": "sap-icon://decision"
+      }],
       "Locations": [
         {
           "x": "100",
@@ -429,6 +520,44 @@
       "height": "40",
       "Speed": "0.05",
       "fill": "false",
+      "status": "working",
+      "remain": "26",
+      "ricon": "Canvas/img/u154.png",
+      "tid": "T097A890",
+      "ttype": "Goods Issue",
+      "sLoc": "D-7",
+      "tLoc": "Outbound Area",
+      "rid": "R17032",
+      "gid": "G051",
+      "rtype": "Mobile Rack",
+      "gtype": "Windows Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470734200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471401400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471598800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472960600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1474777400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477932200000)",
+        "Icon": "sap-icon://decision"
+      }],
       "Locations": [
         {
           "x": "635",
@@ -486,6 +615,44 @@
       "height": "40",
       "Speed": "0.04",
       "fill": "false",
+      "status": "working",
+      "remain": "78",
+      "ricon": "Canvas/img/u150.png",
+      "tid": "T096F576",
+      "ttype": "Goods Issue",
+      "sLoc": "Inbound Area",
+      "tLoc": "B-3",
+      "rid": "R16045",
+      "gid": "G012",
+      "rtype": "Mobile Rack",
+      "gtype": "EMC Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470912200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471234400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471647800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472457600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473547400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477102200000)",
+        "Icon": "sap-icon://decision"
+      }],
       "Locations": [
         {
           "x": "100",

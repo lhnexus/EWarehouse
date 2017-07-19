@@ -4,15 +4,21 @@
         <l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
             <l:BlockLayoutRow>
                 <l:BlockLayoutCell>
-                    <Title
-                            text="Charts"
-                            titleStyle="H2"
-                            width="100%"/>
-                    <Button text="Trigger Action" icon="sap-icon://factory" press="onClickTrigger" type="Accept">
-                        <layoutData>
-                            <ToolbarLayoutData shrinkable="true"/>
-                        </layoutData>
-                    </Button>
+                    <l:HorizontalLayout>
+                        <l:content>
+                            <mvc:XMLView id="rackNum" viewName="Canvas.Track.rack_num" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="whCap" viewName="Canvas.Track.wh_capacity" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="robotUt" viewName="Canvas.Track.robot_ut" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="temperature" viewName="Canvas.Track.temperature" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="humidity" viewName="Canvas.Track.humidity" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <Button text="Trigger Action" icon="sap-icon://factory" press="onClickTrigger" type="Accept">
+                                <layoutData>
+                                    <ToolbarLayoutData shrinkable="true"/>
+                                </layoutData>
+                            </Button>
+                        </l:content>
+                    </l:HorizontalLayout>
+
                     <!--<Button text="Trigger Inbound" icon="sap-icon://factory" press="onClickRefreshInbound" type="Reject">-->
                         <!--<layoutData>-->
                             <!--<ToolbarLayoutData shrinkable="true"/>-->

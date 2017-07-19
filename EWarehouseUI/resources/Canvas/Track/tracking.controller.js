@@ -18,8 +18,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel",
 
             },
 
-            _rectclick: function(){
-                    console.log("click car");
+            _rectclick: function(carnum){
+                var dview = sap.ui.getCore().byId("Canvas_Main--robotdetail");
+
+                var localModel = new sap.ui.model.json.JSONModel();
+
+                localModel.setData( oModel4Bound.getData().Cars[carnum]);
+                localModel.attachRequestCompleted(convertData);
+                dview.setModel(localModel);
             },
 
             _initCars: function(svg, oMovingModel, carnum) {
@@ -41,7 +47,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/odata/v2/ODataModel",
                 .style("pointer-events","visible")
                 .style('stroke-width', '5')
                 .on('click', function() {
-                    that._rectclick();
+                    that._rectclick(carnum);
                 });
         },
 

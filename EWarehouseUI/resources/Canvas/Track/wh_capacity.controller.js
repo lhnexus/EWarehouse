@@ -1,0 +1,16 @@
+sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgUtil"],
+	function (Controller,MessageToast){
+	"use strict";
+ 
+ 	return Controller.extend("Canvas.Track.wh_capacity", {
+		onInit: function() {
+
+            var oModel = new sap.ui.model.json.JSONModel();
+            oModel.loadData("Canvas/mockserver/data.json");
+            this.getView().setModel(oModel);
+
+
+		}
+		
+ 	});
+});

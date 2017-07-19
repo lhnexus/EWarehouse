@@ -728,6 +728,43 @@ function freshOutbound(push, oMovingModel, svg,rect) {
 
 }
 
+function convertData(oEvent) {
+    var oData,
+        oModel = oEvent.getSource();
+    // sContextPath = getContextPath();
+
+    if (!oEvent.getParameters().success) {
+        return;
+    }
+
+    oData = oModel.getData();
+    oData.GoodTimeLine.forEach(function (oGTimeLine) {
+        oGTimeLine.time = DateUtils.parseDate(oGTimeLine.time);
+
+    });
+    oModel.updateBindings(true);
+}
+
+function calRack(oEvent) {
+    var oData,
+        oModel = oEvent.getSource();
+    // sContextPath = getContextPath();
+
+    if (!oEvent.getParameters().success) {
+        return;
+    }
+
+    oData = oModel.getData();
+    var rnum = oData.Counters.Locations.length;
+    oData.Counters.rnum = rnum;
+    // oData.Counters.forEach(function (oRack) {
+    //     var rnum = oRack.Locations.length;
+    //     oRack.rnum = rnum;
+    //
+    // });
+    oModel.updateBindings(true);
+}
+
 function freshDetail(){
 //     oDetailView = sap.ui.view({
 //         preprocessors : {
