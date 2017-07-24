@@ -1,4 +1,4 @@
-sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast", "./Util/svgUtil"],
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast", "./Util/svgUtil", "./Util/IotUtil"],
     function (Controller,MessageToast) {
         "use strict";
 
@@ -35,6 +35,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast", "./Util/svgUti
                 }
 
             },
+
+            //onClickIOT: function(){
+            //    sendData();
+            //},
 
             onClickRefreshInbound: function(){
                 // var oMovingModel = this.getView().getModel();

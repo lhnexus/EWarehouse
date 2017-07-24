@@ -7,6 +7,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 
             var oModel = new sap.ui.model.json.JSONModel();
             oModel.loadData("Canvas/mockserver/data.json");
+
+            var oModel = new sap.ui.model.odata.v2.ODataModel("https://iotmmsi323921trial.hanatrial.ondemand.com/com.sap.iotservices.mms/v1/api/http/app.svc");
+
+            oModel.attachMetadataLoaded(null, function(){
+                var oMetadata = oModel.getServiceMetadata();
+                console.log(oMetadata);
+            },null);
+
+
             oModel.attachRequestCompleted(calRack);
             this.getView().setModel(oModel);
 

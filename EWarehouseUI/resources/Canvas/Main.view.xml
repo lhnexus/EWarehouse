@@ -11,11 +11,18 @@
                             <mvc:XMLView id="robotUt" viewName="Canvas.Track.robot_ut" class="sapUiNoMarginTop" width="320px" height="100px"/>
                             <mvc:XMLView id="temperature" viewName="Canvas.Track.temperature" class="sapUiNoMarginTop" width="320px" height="100px"/>
                             <mvc:XMLView id="humidity" viewName="Canvas.Track.humidity" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <l:VerticalLayout>
                             <Button text="Trigger Action" icon="sap-icon://factory" press="onClickTrigger" type="Accept">
                                 <layoutData>
                                     <ToolbarLayoutData shrinkable="true"/>
                                 </layoutData>
                             </Button>
+                            <Button text="Trigger IOT SENSOR" icon="sap-icon://factory" press="onClickIOT" type="Reject">
+                                <layoutData>
+                                    <ToolbarLayoutData shrinkable="true"/>
+                                </layoutData>
+                            </Button>
+                            </l:VerticalLayout>
                         </l:content>
                     </l:HorizontalLayout>
 
