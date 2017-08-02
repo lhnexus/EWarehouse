@@ -2,6 +2,6 @@
   "hcpdeploy": {
     "account": "i323921trial",
     "name": "ewarehouse",
-    "lastVersionWeTriedToDeploy": "0.0.1"
+    "lastVersionWeTriedToDeploy": "0.0.8"
   }
 }

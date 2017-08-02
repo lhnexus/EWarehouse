@@ -1,6 +1,14 @@
 {
   "welcomeFile": "/EWarehouseUI/resources/index.html",
   "routes": [
+  	{
+      "path": "/iotmms",
+      "target": {
+        "type": "destination",
+        "name": "iotmms"
+      },
+      "description": "IOT Message Managment API"
+    },
     {
       "path": "/resources",
       "target": {
