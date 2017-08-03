@@ -5,13 +5,13 @@
 			<l:content>
 				<m:Label text="Warehouse Capacity Used" class="subtitle"/>
 				<l:HorizontalLayout>
-					<!--<m:FlexBox justifyContent="End">-->
-					<!--	<core:Icon id="whCapicon" src="sap-icon://database" class="sapUiMediumMarginEnd sapUiTinyMarginTop" size="2rem" press="handleStethoscopePress">-->
-					<!--	</core:Icon>-->
-					<!--</m:FlexBox>-->
-					<!--<m:NumericContent id="whCapnum" value="{/Warehouse/Capacity}" withMargin="false"/>-->
-					<m:Image id="cimg" 
-						src="" height="65px"/>
+					<m:FlexBox justifyContent="End">
+						<core:Icon id="whCapicon" src="sap-icon://database" class="sapUiMediumMarginEnd sapUiTinyMarginTop" size="2rem" press="handleStethoscopePress">
+						</core:Icon>
+					</m:FlexBox>
+					<m:NumericContent id="whCapnum" value="{/Warehouse/Capacity}" withMargin="false"/>
+					<!--<m:Image id="cimg" -->
+					<!--	src="" height="65px"/>-->
 				</l:HorizontalLayout >
 			</l:content>
 		</l:VerticalLayout>

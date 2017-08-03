@@ -8,16 +8,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				var oModel = new sap.ui.model.json.JSONModel();
 				oModel.loadData("Canvas/mockserver/data.json");
 
-				var oRModel = new sap.ui.model.odata.v2.ODataModel("/iotmms/v1/api/http/app.svc");
+				// var oRModel = new sap.ui.model.odata.v2.ODataModel("/iotmms/v1/api/http/app.svc");
 				this.getView().setModel(oModel, "jdata");
-				this.getView().setModel(oRModel, "odata");
+				// this.getView().setModel(oRModel, "odata");
 
 			},
 
 			onAfterRendering: function() {
 
-				var that = this;
-				that._loadData(that);
+				// var that = this;
+				// that._loadData(that);
 
 			},
 

@@ -43,7 +43,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 							var hnum = that.getView().byId("humiditynum");
 							hnum.setValue(parseFloat(humidity));
 							//console.log(time);
-							console.log(parseFloat(humidity));
+							//console.log(parseFloat(humidity));
 						},
 						failed: function(oData, response) {
 								alert("Failed to get InputHelpValues from service!");
